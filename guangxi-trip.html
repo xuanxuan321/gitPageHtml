@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>广西海边山水之旅 · 04.29–05.05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&family=ZCOOL+KuaiLe&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Fraunces:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1f3a4d;
+    --ink-soft:#4a5a68;
+    --paper:#faf4e8;
+    --paper-2:#f3ead8;
+    --sand:#f6e7c9;
+    --sea-1:#5fa8c9;
+    --sea-2:#2d6f8e;
+    --sea-deep:#1d4e6b;
+    --sun:#f2a33c;
+    --sunset:#e76f51;
+    --coral:#eb8a6a;
+    --jade:#6fa47a;
+    --jade-deep:#3e7252;
+    --moss:#a8c4a2;
+    --mist:#cfe0dc;
+    --gold:#c8984a;
+    --plum:#8a3a3a;
+    --shadow: 0 10px 30px rgba(31,58,77,.12), 0 2px 6px rgba(31,58,77,.08);
+    --stroke:#d9c9a5;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 20% -10%, #d3e6ef 0%, transparent 60%),
+      radial-gradient(900px 500px at 120% 10%, #fbe3c6 0%, transparent 55%),
+      linear-gradient(180deg, #f7ecd6 0%, #efe1c3 40%, #e8d9b8 100%);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+    font-feature-settings:"palt" 1;
+  }
+  /* 纸张颗粒纹理 */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      radial-gradient(rgba(60,40,20,.05) 1px, transparent 1px),
+      radial-gradient(rgba(60,40,20,.035) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+    mix-blend-mode:multiply;
+    opacity:.5;
+  }
+  .page{
+    max-width:460px;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+    padding-bottom:40px;
+    overflow:hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    height:340px;
+    overflow:hidden;
+    background: linear-gradient(180deg,#9fd2e3 0%, #c7e4e8 38%, #f7d9a6 62%, #f4c27d 100%);
+  }
+  .hero svg.scene{position:absolute;inset:0;width:100%;height:100%;}
+  .hero .title-block{
+    position:absolute;
+    left:22px;right:22px;top:28px;
+    display:flex;flex-direction:column;gap:6px;
+    z-index:3;
+  }
+  .hero .zh-title{
+    font-family:'Ma Shan Zheng','ZCOOL KuaiLe',serif;
+    font-size:46px;
+    color:var(--sea-deep);
+    letter-spacing:3px;
+    line-height:1;
+    text-shadow: 0 2px 0 rgba(255,255,255,.5), 0 6px 14px rgba(29,78,107,.18);
+  }
+  .hero .date-pill{
+    display:inline-block;
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:18px;
+    color:#fff;
+    background:linear-gradient(135deg, var(--sunset), var(--sun));
+    padding:4px 14px;
+    border-radius:20px;
+    align-self:flex-start;
+    margin-top:6px;
+    box-shadow:0 4px 10px rgba(231,111,81,.3);
+    letter-spacing:1px;
+  }
+  .hero .route{
+    position:absolute;
+    left:22px;right:22px;bottom:74px;
+    z-index:3;
+    font-family:'ZCOOL XiaoWei',serif;
+    font-size:16px;
+    color:var(--sea-deep);
+    letter-spacing:2px;
+    text-shadow:0 1px 0 rgba(255,255,255,.6);
+  }
+  .hero .route b{color:var(--sunset);margin:0 4px;}
+
+  /* ===== 路线流程图 ===== */
+  .flow{
+    position:relative;
+    margin:-28px 14px 20px;
+    padding:14px 10px;
+    background:#fffaf0;
+    border:1.5px solid var(--stroke);
+    border-radius:40px;
+    box-shadow:var(--shadow);
+    z-index:4;
+  }
+  .flow-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:0;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding:0 4px;
+  }
+  .flow-inner::-webkit-scrollbar{display:none;}
+  .flow-node{
+    display:flex;flex-direction:column;align-items:center;
+    flex:0 0 auto;
+    min-width:42px;
+  }
+  .flow-node .icon{
+    width:34px;height:34px;border-radius:50%;
+    background:linear-gradient(135deg,#fff, #fff3dc);
+    border:1.5px solid var(--stroke);
+    display:grid;place-items:center;
+    font-size:18px;
+    box-shadow:inset 0 -2px 0 rgba(200,152,74,.15);
+  }
+  .flow-node .label{
+    margin-top:4px;
+    font-size:11px;
+    color:var(--ink-soft);
+    font-family:'Noto Serif SC',serif;
+    white-space:nowrap;
+  }
+  .flow-arrow{
+    flex:1 1 auto;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+    min-width:22px;
+    height:34px;
+  }
+  .flow-arrow::before{
+    content:"";
+    height:0;border-top:1.5px dashed var(--gold);
+    width:100%;
+  }
+  .flow-arrow .mode{
+    position:absolute;
+    top:-4px;
+    font-size:13px;
+    background:#fffaf0;
+    padding:0 3px;
+    color:var(--sea-2);
+  }
+
+  /* ===== 日卡片 ===== */
+  .day{
+    position:relative;
+    margin:18px 14px;
+    border-radius:22px;
+    overflow:hidden;
+    background:#fffaf0;
+    border:1.5px solid var(--stroke);
+    box-shadow:var(--shadow);
+  }
+  .day-head{
+    position:relative;
+    height:136px;
+    overflow:hidden;
+    display:flex;
+    color:#fff;
+  }
+  .day-head .left{
+    flex:0 0 92px;
+    padding:14px 10px 12px 14px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    position:relative;z-index:2;
+  }
+  .day-head .date{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:24px;
+    letter-spacing:1px;
+    line-height:1;
+  }
+  .day-head .weekday{
+    font-family:'ZCOOL XiaoWei',serif;
+    font-size:14px;
+    opacity:.9;
+    margin-top:4px;
+  }
+  .day-head .where{
+    font-family:'Ma Shan Zheng',serif;
+    font-size:22px;
+    line-height:1.1;
+    text-shadow:0 1px 2px rgba(0,0,0,.15);
+  }
+  .day-head .scene-wrap{
+    position:absolute;inset:0;
+    z-index:1;
+  }
+  .day-head .scene-wrap svg{width:100%;height:100%;display:block;}
+  .day-head .theme-tag{
+    position:absolute;
+    right:14px;top:14px;
+    z-index:3;
+    font-family:'Noto Serif SC',serif;
+    font-weight:600;
+    font-size:13px;
+    padding:5px 12px;
+    border-radius:20px;
+    background:rgba(255,255,255,.9);
+    color:var(--ink);
+    letter-spacing:1px;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+  }
+
+  /* 每日主题色 */
+  .d1 .day-head{background:linear-gradient(135deg,#f7a860 0%, #e26a4a 55%, #b84a40 100%);}
+  .d2 .day-head{background:linear-gradient(135deg,#7fc3db 0%, #4a93b8 50%, #2a5f7d 100%);}
+  .d3 .day-head{background:linear-gradient(135deg,#f2a66c 0%, #d85f4a 55%, #7d2d45 100%);}
+  .d4 .day-head{background:linear-gradient(135deg,#9cc49e 0%, #5b9670 50%, #2f6248 100%);}
+  .d5 .day-head{background:linear-gradient(135deg,#b5d4a8 0%, #6ea985 50%, #3d7355 100%);}
+  .d6 .day-head{background:linear-gradient(135deg,#e0be76 0%, #b88c4a 50%, #7a5c2e 100%);}
+  .d7 .day-head{background:linear-gradient(135deg,#d4a86a 0%, #a66f3e 50%, #6b3d2a 100%);}
+
+  .day-body{
+    padding:14px 16px 18px;
+    background:
+      radial-gradient(400px 200px at 100% 0%, rgba(255,235,190,.35), transparent 60%),
+      #fffaf0;
+  }
+
+  .meta-row{
+    display:flex;gap:8px;flex-wrap:wrap;
+    margin-bottom:12px;
+  }
+  .chip{
+    display:inline-flex;align-items:center;gap:4px;
+    font-size:12px;
+    padding:4px 10px;
+    border-radius:14px;
+    border:1px solid var(--stroke);
+    background:#fff8e6;
+    color:var(--ink-soft);
+    font-family:'Noto Serif SC',serif;
+  }
+  .chip b{color:var(--ink);font-weight:600;}
+  .chip.stay{background:#f4ecd8;border-color:#d6c48a;}
+  .chip.ticket-ok{background:#e3efe0;border-color:#a5c9a0;color:#3e7252;}
+  .chip.ticket-warn{background:#fbe1d6;border-color:#e9a488;color:#b34a2d;}
+
+  .timeline{
+    position:relative;
+    padding-left:22px;
+    margin-top:8px;
+  }
+  .timeline::before{
+    content:"";position:absolute;left:6px;top:6px;bottom:6px;
+    width:2px;
+    background:repeating-linear-gradient(to bottom, var(--gold) 0 4px, transparent 4px 8px);
+    opacity:.5;
+  }
+  .tl-item{
+    position:relative;
+    padding:0 0 14px 2px;
+  }
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:-22px;top:6px;
+    width:12px;height:12px;border-radius:50%;
+    background:#fff;
+    border:2.5px solid var(--accent,var(--sea-2));
+    box-shadow:0 0 0 3px rgba(255,255,255,1);
+  }
+  .tl-title{
+    font-family:'Noto Serif SC',serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink);
+    display:flex;align-items:center;flex-wrap:wrap;gap:6px;
+  }
+  .tl-title .time{
+    font-family:'Fraunces',serif;
+    font-size:12px;
+    color:var(--accent,var(--sea-2));
+    background:rgba(255,255,255,.6);
+    padding:1px 8px;
+    border-radius:10px;
+    border:1px solid var(--accent-soft,#cfe0dc);
+    font-weight:500;
+    letter-spacing:.5px;
+  }
+  .tl-title .star{color:#e9a73a;font-size:12px;}
+  .tl-desc{
+    font-size:13px;
+    line-height:1.65;
+    color:var(--ink-soft);
+    margin-top:4px;
+  }
+  .tl-desc em{
+    font-style:normal;
+    color:var(--plum);
+    font-weight:500;
+  }
+  .tl-tag{
+    display:inline-block;font-size:11px;
+    padding:1px 6px;border-radius:6px;
+    background:#fff3dc;border:1px solid #e6cf9a;
+    color:var(--gold);margin-right:4px;
+  }
+
+  /* 每天的 accent */
+  .d1{--accent:#d15e3a;--accent-soft:#f7d5c4;}
+  .d2{--accent:#2a7a9c;--accent-soft:#c8e2ec;}
+  .d3{--accent:#b8513a;--accent-soft:#f4d0bf;}
+  .d4{--accent:#4a8260;--accent-soft:#c9e0cf;}
+  .d5{--accent:#5b8f6a;--accent-soft:#d4e4ce;}
+  .d6{--accent:#a07436;--accent-soft:#ecd9a8;}
+  .d7{--accent:#8a5a34;--accent-soft:#e7cda5;}
+
+  /* ===== 票务待办 ===== */
+  .todo{
+    margin:22px 14px 0;
+    background:#fffaf0;
+    border:1.5px solid var(--stroke);
+    border-radius:22px;
+    padding:16px 18px 18px;
+    box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  .todo h3{
+    margin:0 0 12px;
+    font-family:'Ma Shan Zheng',serif;
+    font-weight:400;
+    font-size:22px;
+    color:var(--sea-deep);
+    letter-spacing:2px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .todo h3::before{content:"🧳";font-size:20px;}
+  .todo ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .todo li{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    font-family:'Noto Serif SC',serif;font-size:14px;
+    padding:6px 4px;
+    border-bottom:1px dashed #e2d3ae;
+  }
+  .todo li:last-child{border-bottom:none;}
+  .todo li .name{display:flex;align-items:center;gap:8px;}
+  .todo li .name .box{
+    width:18px;height:18px;border-radius:5px;display:grid;place-items:center;
+    font-size:12px;font-weight:700;
+  }
+  .ok .box{background:#5ba06a;color:#fff;}
+  .ok .status{color:#3e7252;font-size:12px;}
+  .no .box{background:#fff;border:1.5px solid #d15e3a;color:#d15e3a;}
+  .no .status{color:#b34a2d;font-size:12px;font-weight:600;}
+
+  /* ===== 关键词 ===== */
+  .keywords{
+    margin:18px 14px 0;
+    background:#fffaf0;
+    border:1.5px solid var(--stroke);
+    border-radius:22px;
+    padding:16px 16px 18px;
+    box-shadow:var(--shadow);
+  }
+  .keywords h3{
+    margin:0 0 14px;
+    font-family:'Ma Shan Zheng',serif;
+    font-weight:400;
+    font-size:22px;
+    color:var(--sea-deep);
+    letter-spacing:2px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .keywords h3::before{content:"📷";font-size:20px;}
+  .kw-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:12px 8px;
+  }
+  .kw{
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+  }
+  .kw .kw-ico{
+    width:54px;height:54px;border-radius:14px;
+    background:linear-gradient(135deg,#fff,#fff0d6);
+    border:1.5px solid var(--stroke);
+    display:grid;place-items:center;
+    font-size:26px;
+    box-shadow:inset 0 -3px 0 rgba(200,152,74,.15);
+  }
+  .kw .kw-text{
+    font-family:'Noto Serif SC',serif;
+    font-size:12px;
+    color:var(--ink);
+  }
+
+  /* ===== 底部页脚 ===== */
+  .footer{
+    margin:24px 14px 8px;
+    text-align:center;
+    font-family:'ZCOOL XiaoWei',serif;
+    color:var(--ink-soft);
+    font-size:13px;
+    letter-spacing:3px;
+    opacity:.8;
+  }
+  .footer .line{
+    display:block;
+    height:1px;width:40px;margin:12px auto 8px;
+    background:var(--gold);opacity:.5;
+  }
+
+  /* 装饰印章 */
+  .seal{
+    position:absolute;
+    right:14px;bottom:12px;
+    font-family:'Ma Shan Zheng',serif;
+    color:#c24a3a;
+    background:#fff;
+    border:2px solid #c24a3a;
+    padding:4px 8px;
+    border-radius:4px;
+    font-size:12px;letter-spacing:2px;
+    transform:rotate(-6deg);
+    opacity:.9;
+    z-index:5;
+  }
+
+  /* 小装饰:鸟 */
+  .birds{position:absolute;top:70px;right:30px;z-index:2;opacity:.7;}
+
+  /* 标签:特色/美食 */
+  .tag-food{color:#b34a2d;}
+  .tag-view{color:#2a7a9c;}
+  .tag-must{color:#d18a00;}
+
+  /* 进入动画 */
+  @keyframes rise { from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:none;} }
+  .day,.todo,.keywords,.flow{animation:rise .6s ease both;}
+  .day:nth-child(2){animation-delay:.05s;}
+  .day:nth-child(3){animation-delay:.1s;}
+  .day:nth-child(4){animation-delay:.15s;}
+
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <svg class="scene" viewBox="0 0 460 340" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#a8d6e3"/>
+          <stop offset=".55" stop-color="#f6d8a3"/>
+          <stop offset="1" stop-color="#f2a658"/>
+        </linearGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#5ea8c6"/>
+          <stop offset="1" stop-color="#2d6a8a"/>
+        </linearGradient>
+        <linearGradient id="mtn1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#4a7d8a"/>
+          <stop offset="1" stop-color="#2d5567"/>
+        </linearGradient>
+        <linearGradient id="mtn2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#76a6a8"/>
+          <stop offset="1" stop-color="#4d7f82"/>
+        </linearGradient>
+        <linearGradient id="mtn3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#a5c4b6"/>
+          <stop offset="1" stop-color="#7ba389"/>
+        </linearGradient>
+        <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="#fff3c4"/>
+          <stop offset=".6" stop-color="#f5bb52"/>
+          <stop offset="1" stop-color="#e6893a"/>
+        </radialGradient>
+      </defs>
+      <!-- 天空 -->
+      <rect width="460" height="240" fill="url(#sky)"/>
+      <!-- 太阳 -->
+      <circle cx="340" cy="120" r="38" fill="url(#sun)" opacity=".85"/>
+      <circle cx="340" cy="120" r="56" fill="#f5bb52" opacity=".15"/>
+      <!-- 远山(桂林喀斯特) -->
+      <path d="M0,200 Q20,155 40,175 Q55,140 75,170 Q100,125 120,170 Q140,130 165,175 Q185,145 210,178 Q235,150 260,180 Q290,155 315,180 Q340,160 365,185 Q395,160 420,185 Q440,170 460,190 L460,240 L0,240 Z" fill="url(#mtn1)" opacity=".7"/>
+      <path d="M0,215 Q25,180 50,200 Q80,170 110,205 Q140,180 170,210 Q200,185 230,210 Q260,190 290,215 Q320,195 350,215 Q380,195 410,215 Q440,200 460,215 L460,240 L0,240 Z" fill="url(#mtn2)" opacity=".85"/>
+      <!-- 海面 -->
+      <rect y="238" width="460" height="102" fill="url(#sea)"/>
+      <!-- 海面波光 -->
+      <g stroke="#fff6d4" stroke-width="1" opacity=".6" fill="none">
+        <path d="M40,260 q10,-3 20,0 t20,0 t20,0"/>
+        <path d="M160,275 q12,-3 24,0 t24,0"/>
+        <path d="M260,290 q14,-3 28,0 t28,0"/>
+        <path d="M80,305 q14,-3 28,0 t28,0 t28,0"/>
+        <path d="M300,315 q14,-3 28,0 t28,0"/>
+      </g>
+      <!-- 海浪泡沫 -->
+      <path d="M0,238 Q30,232 60,238 T120,238 T180,238 T240,238 T300,238 T360,238 T460,238 L460,244 L0,244 Z" fill="#fff9e7" opacity=".55"/>
+      <!-- 前景椰树(左) -->
+      <g transform="translate(20,100)">
+        <path d="M18,160 Q20,90 22,40" stroke="#5a3e20" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <g fill="#2d7a4a">
+          <path d="M22,42 Q-10,20 -30,35 Q-5,30 22,48 Z"/>
+          <path d="M22,42 Q55,15 75,32 Q50,28 22,48 Z"/>
+          <path d="M22,42 Q0,5 -20,-5 Q5,20 22,48 Z"/>
+          <path d="M22,42 Q45,5 65,-5 Q40,20 22,48 Z"/>
+          <path d="M22,42 Q25,5 10,-20 Q24,15 22,48 Z"/>
+        </g>
+        <circle cx="16" cy="48" r="3" fill="#6b3d1e"/>
+        <circle cx="24" cy="50" r="3" fill="#6b3d1e"/>
+      </g>
+      <!-- 小岛+帆船 -->
+      <g transform="translate(170,220)">
+        <ellipse cx="20" cy="8" rx="22" ry="4" fill="#c9a766" opacity=".8"/>
+        <path d="M10,8 Q20,-18 30,8 Z" fill="#4d7f82"/>
+      </g>
+      <!-- 帆船 -->
+      <g transform="translate(270,252)">
+        <path d="M0,8 L30,8 L26,14 L4,14 Z" fill="#7b4a2d"/>
+        <path d="M15,8 L15,-10 L28,6 Z" fill="#fff1c4"/>
+        <path d="M15,8 L15,-5 L5,6 Z" fill="#f2d07a"/>
+      </g>
+      <!-- 海鸥 -->
+      <g stroke="#2d5567" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".8">
+        <path d="M80,90 q4,-5 8,0 q4,-5 8,0"/>
+        <path d="M110,110 q3,-4 6,0 q3,-4 6,0"/>
+        <path d="M380,80 q4,-5 8,0 q4,-5 8,0"/>
+      </g>
+    </svg>
+    <div class="title-block">
+      <div class="zh-title">广西海边山水之旅</div>
+      <div class="date-pill">04.29 — 05.05</div>
+    </div>
+    <div class="route">北海 <b>→</b> 涠洲岛 <b>→</b> 阳朔 <b>→</b> 桂林 <b>→</b> 柳州</div>
+    <div class="seal">壬寅 · 远行</div>
+  </section>
+
+  <!-- ============ 路线流程图 ============ -->
+  <section class="flow">
+    <div class="flow-inner">
+      <div class="flow-node"><div class="icon">🐼</div><div class="label">成都</div></div>
+      <div class="flow-arrow"><span class="mode">✈️</span></div>
+      <div class="flow-node"><div class="icon">🏖️</div><div class="label">北海</div></div>
+      <div class="flow-arrow"><span class="mode">🚢</span></div>
+      <div class="flow-node"><div class="icon">🌋</div><div class="label">涠洲岛</div></div>
+      <div class="flow-arrow"><span class="mode">🚢</span></div>
+      <div class="flow-node"><div class="icon">🏖️</div><div class="label">北海</div></div>
+      <div class="flow-arrow"><span class="mode">🚄</span></div>
+      <div class="flow-node"><div class="icon">🏞️</div><div class="label">桂林</div></div>
+      <div class="flow-arrow"><span class="mode">🚄</span></div>
+      <div class="flow-node"><div class="icon">🚣</div><div class="label">阳朔</div></div>
+      <div class="flow-arrow"><span class="mode">🚄</span></div>
+      <div class="flow-node"><div class="icon">🏯</div><div class="label">桂林</div></div>
+      <div class="flow-arrow"><span class="mode">🚄</span></div>
+      <div class="flow-node"><div class="icon">🍜</div><div class="label">柳州</div></div>
+      <div class="flow-arrow"><span class="mode">✈️</span></div>
+      <div class="flow-node"><div class="icon">🐼</div><div class="label">成都</div></div>
+    </div>
+  </section>
+
+  <!-- ============ DAY 1 · 04.29 北海 ============ -->
+  <article class="day d1">
+    <header class="day-head">
+      <div class="scene-wrap">
+        <svg viewBox="0 0 460 136" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="sun1" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff2b8"/><stop offset="1" stop-color="#f4a33c" stop-opacity="0"/></radialGradient>
+          </defs>
+          <!-- 右侧日落海景 -->
+          <g transform="translate(200,0)">
+            <circle cx="160" cy="70" r="38" fill="#ffd67a"/>
+            <circle cx="160" cy="70" r="60" fill="url(#sun1)" opacity=".8"/>
+            <!-- 海平面倒影 -->
+            <rect y="80" width="260" height="56" fill="#e76f51" opacity=".35"/>
+            <path d="M0,82 Q30,78 60,82 T120,82 T180,82 T260,82 L260,136 L0,136 Z" fill="#b84a40" opacity=".55"/>
+            <!-- 椰树剪影 -->
+            <g fill="#3e2018" transform="translate(30,20)">
+              <path d="M20,100 Q22,60 24,20" stroke="#3e2018" stroke-width="3" fill="none"/>
+              <path d="M24,22 Q5,8 -12,14 Q8,14 24,26"/>
+              <path d="M24,22 Q44,6 58,12 Q40,14 24,26"/>
+              <path d="M24,22 Q20,2 8,-8 Q22,10 24,26"/>
+            </g>
+            <!-- 沙滩伞 -->
+            <g transform="translate(180,92)">
+              <rect x="-1" y="0" width="2" height="22" fill="#5a3a20"/>
+              <path d="M-18,0 Q0,-18 18,0 Z" fill="#eb8a6a"/>
+              <path d="M-18,0 Q-9,-2 0,0 Q9,-2 18,0" stroke="#fff" stroke-width=".5" fill="none" opacity=".5"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="left">
+        <div>
+          <div class="date">04.29</div>
+          <div class="weekday">周二 · Day 1</div>
+        </div>
+        <div class="where">北海</div>
+      </div>
+      <div class="theme-tag">海边 · 日落</div>
+    </header>
+    <div class="day-body">
+      <div class="meta-row">
+        <span class="chip ticket-ok">✓ 机票已订</span>
+        <span class="chip stay">🏨 住侨港</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">07:45–09:55</span>成都 → 北海</div>
+          <div class="tl-desc">福成机场 → 市区约 <em>30min</em>,落地直奔酒店放行李。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">中午 · 到达酒店 & 午餐</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>海鲜推荐 <em>越乡小厨</em>,性价比不错。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">14:00–19:00</span>银滩 <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-view">景色</span>下午去晒太阳、拍日落,<em>日落约 18:40</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">19:00 起</span>侨港风情街</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">必吃</span>卷粉、虾饼、越南春卷、蟹仔粉 / 海鲜粉;糖水(芒果肠粉、槐花粉)。</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 2 · 04.30 涠洲岛 ============ -->
+  <article class="day d2">
+    <header class="day-head">
+      <div class="scene-wrap">
+        <svg viewBox="0 0 460 136" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- 火山/悬崖 -->
+          <g transform="translate(220,0)">
+            <!-- 海面 -->
+            <rect y="90" width="240" height="46" fill="#3a7a9a" opacity=".8"/>
+            <path d="M0,92 Q30,88 60,92 T120,92 T200,92 T240,92 L240,96 L0,96 Z" fill="#5fa8c9" opacity=".8"/>
+            <!-- 火山岩悬崖 -->
+            <path d="M30,90 L50,40 L80,25 L110,42 L140,28 L175,50 L210,38 L240,60 L240,90 Z" fill="#4a3a3a"/>
+            <path d="M30,90 L50,40 L80,25 L110,42 L140,28 L175,50 L210,38 L240,60 L240,90 Z" fill="#6b4a3a" opacity=".6"/>
+            <!-- 灯塔 -->
+            <g transform="translate(90,15)">
+              <rect x="-3" y="0" width="6" height="20" fill="#fff"/>
+              <rect x="-4" y="20" width="8" height="2" fill="#c24a3a"/>
+              <path d="M-3,0 L3,0 L2,-5 L-2,-5 Z" fill="#c24a3a"/>
+            </g>
+            <!-- 日落 -->
+            <circle cx="50" cy="50" r="18" fill="#f5bb52" opacity=".9"/>
+            <circle cx="50" cy="50" r="30" fill="#f5bb52" opacity=".2"/>
+          </g>
+          <!-- 左侧船只 -->
+          <g transform="translate(30,70)">
+            <ellipse cx="20" cy="20" rx="30" ry="5" fill="#fff" opacity=".4"/>
+            <path d="M0,18 L40,18 L34,26 L6,26 Z" fill="#e8e8e8"/>
+            <rect x="10" y="8" width="20" height="10" fill="#fff"/>
+            <rect x="14" y="10" width="4" height="4" fill="#5fa8c9"/>
+            <rect x="22" y="10" width="4" height="4" fill="#5fa8c9"/>
+          </g>
+        </svg>
+      </div>
+      <div class="left">
+        <div>
+          <div class="date">04.30</div>
+          <div class="weekday">周三 · Day 2</div>
+        </div>
+        <div class="where">涠洲岛</div>
+      </div>
+      <div class="theme-tag">火山地貌 · 日落</div>
+    </header>
+    <div class="day-body">
+      <div class="meta-row">
+        <span class="chip ticket-ok">✓ 船票已订</span>
+        <span class="chip ticket-warn">✗ 上岛费未订</span>
+        <span class="chip stay">🏨 住石螺口</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">07:00</span>出发去北海国际客运港</div>
+          <div class="tl-desc">船票:<em>「来游吧」官网</em>购票;上岛费 + 鳄鱼山门票需提前预约(公众号「涠洲岛旅游区」)。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">08:30–09:50</span>北海 → 涠洲岛</div>
+          <div class="tl-desc">船程约 <em>1h20min</em>,到港后前往酒店。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">南湾街午餐</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>南湾市场现买海鲜找店加工:濑尿虾、石斑鱼、扇贝;另外椰子鸡、香蕉猪、烤生蚝都值得尝。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">13:30–16:00</span>石螺口海滩</div>
+          <div class="tl-desc"><span class="tl-tag tag-view">最佳戏水</span>水清沙白,可浮潜 / 潜水体验 <em>约 200–300 元</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">16:30–18:30</span>滴水丹屏 <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-must">必看日落</span>火山岩壁剪影 + 落日,涠洲岛标志性画面,<em>明信片级</em>。石螺口 → 滴水丹屏开车约 10min。</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 3 · 05.01 涠洲岛→北海 ============ -->
+  <article class="day d3">
+    <header class="day-head">
+      <div class="scene-wrap">
+        <svg viewBox="0 0 460 136" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- 日出 + 灯塔 + 教堂 -->
+          <g transform="translate(210,0)">
+            <!-- 日出光晕 -->
+            <circle cx="200" cy="80" r="30" fill="#fff4b8"/>
+            <circle cx="200" cy="80" r="50" fill="#f5bb52" opacity=".4"/>
+            <!-- 海 -->
+            <rect y="95" width="260" height="41" fill="#d85f4a" opacity=".4"/>
+            <rect y="108" width="260" height="28" fill="#7d2d45" opacity=".6"/>
+            <!-- 火山岩 -->
+            <path d="M0,95 L30,60 L55,80 L80,50 L110,70 L130,55 L160,75 L180,65 L200,80 L230,70 L260,85 L260,95 Z" fill="#4a2a28"/>
+            <!-- 灯塔 -->
+            <g transform="translate(40,40)">
+              <rect x="-4" y="0" width="8" height="24" fill="#f4e4c4"/>
+              <rect x="-5" y="22" width="10" height="3" fill="#c24a3a"/>
+              <path d="M-4,0 L4,0 L3,-6 L-3,-6 Z" fill="#c24a3a"/>
+              <circle cx="0" cy="-8" r="2" fill="#fff4b8"/>
+            </g>
+            <!-- 天主教堂 -->
+            <g transform="translate(140,48)">
+              <rect x="-8" y="0" width="16" height="20" fill="#d4b88a"/>
+              <path d="M-8,0 L0,-14 L8,0 Z" fill="#a67b4a"/>
+              <rect x="-1" y="6" width="2" height="6" fill="#7d5a36"/>
+            </g>
+          </g>
+          <g transform="translate(30,65)">
+            <path d="M0,40 Q20,10 40,35 Q60,5 80,30 Q100,8 120,32 Q140,10 160,35 L160,50 L0,50 Z" fill="#4a3a3a" opacity=".4"/>
+          </g>
+        </svg>
+      </div>
+      <div class="left">
+        <div>
+          <div class="date">05.01</div>
+          <div class="weekday">周四 · Day 3</div>
+        </div>
+        <div class="where">涠洲岛·北海</div>
+      </div>
+      <div class="theme-tag">日出 · 火山地貌</div>
+    </header>
+    <div class="day-body">
+      <div class="meta-row">
+        <span class="chip ticket-ok">✓ 返程船票已订</span>
+        <span class="chip stay">🏨 回侨港</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">05:30–06:30</span>五彩滩看日出 <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-must">必看日出</span>涠洲岛最佳日出点,火山岩被海水侵蚀形成彩色纹理,<em>退潮时最美</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">06:30–07:30</span>贝壳沙滩</div>
+          <div class="tl-desc">五彩滩往南 5min 车程,基本同一片区。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">08:00–11:30</span>鳄鱼山火山公园 <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-must">5A唯一</span>门票 <em>98 含观光车</em>,火山口、海蚀拱桥、灯塔、典型火山岛地貌,约 3h。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">天主教堂</div>
+          <div class="tl-desc">清末法式哥特建筑,珊瑚石砌成,<em>免费,很出片</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">午餐 · 南湾街</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>清蒸石斑、椒盐皮皮虾、白灼沙虫、岛上香蕉。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">14:00</span>前往西角码头</div>
+          <div class="tl-desc">码头 check-in 至少提前 <em>30min</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">14:55–16:45</span>涠洲岛 → 北海</div>
+          <div class="tl-desc">到港后北海国际客运港 → 侨港约 30min。</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 4 · 05.02 北海→阳朔 ============ -->
+  <article class="day d4">
+    <header class="day-head">
+      <div class="scene-wrap">
+        <svg viewBox="0 0 460 136" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- 老街骑楼 + 喀斯特山 -->
+          <g transform="translate(220,0)">
+            <!-- 远处喀斯特山 -->
+            <path d="M0,110 Q30,55 55,95 Q80,50 105,90 Q130,55 155,95 Q180,50 205,95 Q225,65 240,95 L240,136 L0,136 Z" fill="#5b9670" opacity=".6"/>
+            <path d="M0,120 Q25,80 50,110 Q75,80 100,110 Q125,80 150,110 Q180,85 210,110 Q230,95 240,110 L240,136 L0,136 Z" fill="#3e7252" opacity=".8"/>
+            <!-- 骑楼 -->
+            <g transform="translate(30,50)">
+              <rect x="0" y="0" width="40" height="60" fill="#e4d4b0"/>
+              <rect x="2" y="10" width="10" height="12" fill="#4a3a28"/>
+              <rect x="16" y="10" width="10" height="12" fill="#4a3a28"/>
+              <rect x="2" y="28" width="10" height="12" fill="#4a3a28"/>
+              <rect x="16" y="28" width="10" height="12" fill="#4a3a28"/>
+              <path d="M-2,0 L42,0 L40,-6 L0,-6 Z" fill="#a66f3e"/>
+            </g>
+            <g transform="translate(80,45)">
+              <rect x="0" y="0" width="40" height="65" fill="#c9b58a"/>
+              <rect x="4" y="8" width="8" height="10" fill="#4a3a28"/>
+              <rect x="16" y="8" width="8" height="10" fill="#4a3a28"/>
+              <rect x="28" y="8" width="8" height="10" fill="#4a3a28"/>
+              <rect x="4" y="24" width="8" height="10" fill="#4a3a28"/>
+              <rect x="16" y="24" width="8" height="10" fill="#4a3a28"/>
+              <rect x="28" y="24" width="8" height="10" fill="#4a3a28"/>
+              <path d="M-2,0 L42,0 L40,-6 L0,-6 Z" fill="#8a5a34"/>
+            </g>
+            <g transform="translate(130,55)">
+              <rect x="0" y="0" width="35" height="55" fill="#d6c49a"/>
+              <rect x="4" y="6" width="7" height="9" fill="#4a3a28"/>
+              <rect x="14" y="6" width="7" height="9" fill="#4a3a28"/>
+              <rect x="24" y="6" width="7" height="9" fill="#4a3a28"/>
+              <path d="M-2,0 L37,0 L35,-5 L0,-5 Z" fill="#a67b4a"/>
+            </g>
+          </g>
+          <!-- 左前景:高铁 -->
+          <g transform="translate(10,90)">
+            <rect x="0" y="0" width="80" height="20" rx="8" fill="#fff"/>
+            <path d="M0,0 L15,-8 L80,-8 L80,0 Z" fill="#fff"/>
+            <rect x="18" y="-5" width="8" height="5" fill="#7fc3db"/>
+            <rect x="30" y="-5" width="8" height="5" fill="#7fc3db"/>
+            <rect x="42" y="-5" width="8" height="5" fill="#7fc3db"/>
+            <rect x="54" y="-5" width="8" height="5" fill="#7fc3db"/>
+            <rect x="66" y="-5" width="8" height="5" fill="#7fc3db"/>
+            <path d="M0,0 L80,0 L80,4 L0,4 Z" fill="#3e7252"/>
+          </g>
+        </svg>
+      </div>
+      <div class="left">
+        <div>
+          <div class="date">05.02</div>
+          <div class="weekday">周五 · Day 4</div>
+        </div>
+        <div class="where">北海 · 阳朔</div>
+      </div>
+      <div class="theme-tag">古镇 · 城市漫步</div>
+    </header>
+    <div class="day-body">
+      <div class="meta-row">
+        <span class="chip ticket-ok">✓ 北海→桂林 高铁</span>
+        <span class="chip ticket-ok">✓ 桂林→阳朔 高铁</span>
+        <span class="chip stay">🏨 住西街外围 / 县城江边</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">09:00–10:30</span>冠头岭</div>
+          <div class="tl-desc"><span class="tl-tag tag-view">景色</span>北海最高点,登顶俯瞰三面海景,有灯塔,<em>适合晨间徒步</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">10:30–11:30</span>北海老街 · 午餐</div>
+          <div class="tl-desc">百年骑楼街,吃完继续赶车。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">12:49–16:17</span>北海 → 桂林</div>
+          <div class="tl-desc">高铁约 <em>3–4.5h,含转车等待</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">17:04–17:27</span>桂林 → 阳朔</div>
+          <div class="tl-desc">高铁 <em>25min</em>,下午到阳朔。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">阳朔西街逛吃</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">必吃</span>啤酒鱼(推荐大师傅 / 谢大姐)、田螺酿、桂林米粉、芒果帮主(甜品)。</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 5 · 05.03 阳朔兴坪 ============ -->
+  <article class="day d5">
+    <header class="day-head">
+      <div class="scene-wrap">
+        <svg viewBox="0 0 460 136" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- 漓江竹筏+喀斯特 -->
+          <g transform="translate(210,0)">
+            <!-- 远山 -->
+            <path d="M0,100 Q20,40 40,85 Q60,30 85,80 Q110,35 135,85 Q160,45 185,85 Q210,50 235,85 L240,100 L0,100 Z" fill="#6ea985" opacity=".6"/>
+            <path d="M0,110 Q30,65 55,100 Q85,65 110,100 Q140,70 170,100 Q200,75 235,100 L240,110 L0,110 Z" fill="#3d7355"/>
+            <!-- 江水 -->
+            <rect y="108" width="240" height="28" fill="#aacbb4" opacity=".8"/>
+            <!-- 倒影 -->
+            <path d="M0,108 Q30,120 55,110 Q85,122 110,110 Q140,120 170,110 Q200,118 235,110 L235,125 L0,125 Z" fill="#6ea985" opacity=".35"/>
+            <!-- 竹筏 -->
+            <g transform="translate(80,112)">
+              <rect x="0" y="0" width="50" height="3" fill="#c89a5a"/>
+              <g stroke="#8a5a34" stroke-width=".5">
+                <line x1="0" y1="1" x2="50" y2="1"/>
+                <line x1="0" y1="2" x2="50" y2="2"/>
+              </g>
+              <rect x="15" y="-14" width="2" height="14" fill="#8a5a34"/>
+              <path d="M17,-14 L34,-10 L17,-6 Z" fill="#f4e4c4"/>
+              <circle cx="28" cy="-3" r="3" fill="#5b8f6a"/>
+              <rect x="27" y="-3" width="2" height="4" fill="#5b8f6a"/>
+            </g>
+          </g>
+          <!-- 左侧骑行人 -->
+          <g transform="translate(40,85)">
+            <circle cx="10" cy="20" r="8" fill="none" stroke="#3d7355" stroke-width="2"/>
+            <circle cx="35" cy="20" r="8" fill="none" stroke="#3d7355" stroke-width="2"/>
+            <path d="M10,20 L22,8 L35,20" stroke="#3d7355" stroke-width="1.5" fill="none"/>
+            <line x1="22" y1="8" x2="22" y2="18" stroke="#3d7355" stroke-width="1.5"/>
+            <circle cx="22" cy="2" r="4" fill="#5b8f6a"/>
+            <path d="M18,8 Q22,14 26,8" fill="#eb8a6a"/>
+          </g>
+        </svg>
+      </div>
+      <div class="left">
+        <div>
+          <div class="date">05.03</div>
+          <div class="weekday">周六 · Day 5</div>
+        </div>
+        <div class="where">阳朔·兴坪·桂林</div>
+      </div>
+      <div class="theme-tag">竹筏 · 骑行</div>
+    </header>
+    <div class="day-body">
+      <div class="meta-row">
+        <span class="chip stay">🏨 住万象城 / 窑埠古镇</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-title">阳朔 → 兴坪</div>
+          <div class="tl-desc">班车约 <em>40min</em> 或打车。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">08:30–10:00</span>兴坪漓江竹筏 <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-must">20元背景</span>九马画山、黄布倒影精华段;竹筏 <em>约 98 元 / 人</em>(需 1.2m+),约 1.5h。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">兴坪古镇 · 返回阳朔</div>
+          <div class="tl-desc">逛完 <em>11:00</em> 左右返回阳朔吃午餐。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">阳朔午餐</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>啤酒鱼、艾叶粑。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">13:30–16:00</span>遇龙河竹筏漂流 <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-must">阳朔必玩</span>比漓江更小家碧玉,手撑竹筏过小坝有水花;推荐 <em>金龙桥 → 旧县段</em>(精华,约 1.5h)。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">16:30–18:00</span>十里画廊骑行</div>
+          <div class="tl-desc">沿途蝴蝶泉、大榕树、月亮山、图腾古道,田园 + 喀斯特山水。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">阳朔 → 桂林</div>
+          <div class="tl-desc">高铁 <em>约 25min</em>,晚上抵达桂林。</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 6 · 05.04 桂林 ============ -->
+  <article class="day d6">
+    <header class="day-head">
+      <div class="scene-wrap">
+        <svg viewBox="0 0 460 136" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- 日月双塔 -->
+          <g transform="translate(230,0)">
+            <!-- 湖水 -->
+            <rect y="100" width="240" height="36" fill="#7fa8c4" opacity=".75"/>
+            <!-- 远山 -->
+            <path d="M0,100 Q30,60 55,95 Q80,55 110,95 Q140,65 170,95 Q200,70 240,95 L240,100 L0,100 Z" fill="#a07436" opacity=".5"/>
+            <!-- 日塔(金色) -->
+            <g transform="translate(60,20)">
+              <path d="M-10,80 L10,80 L8,72 L-8,72 Z" fill="#c8984a"/>
+              <rect x="-8" y="60" width="16" height="12" fill="#f2c86a"/>
+              <path d="M-10,60 L10,60 L8,52 L-8,52 Z" fill="#c8984a"/>
+              <rect x="-7" y="42" width="14" height="10" fill="#f2c86a"/>
+              <path d="M-9,42 L9,42 L7,35 L-7,35 Z" fill="#c8984a"/>
+              <rect x="-5" y="28" width="10" height="7" fill="#f2c86a"/>
+              <path d="M-6,28 L6,28 L0,18 Z" fill="#c8984a"/>
+              <rect x="-1" y="10" width="2" height="10" fill="#8a5a34"/>
+            </g>
+            <!-- 月塔(银色) -->
+            <g transform="translate(140,26)">
+              <path d="M-10,74 L10,74 L8,66 L-8,66 Z" fill="#a8a8b5"/>
+              <rect x="-8" y="54" width="16" height="12" fill="#e0e0e8"/>
+              <path d="M-10,54 L10,54 L8,46 L-8,46 Z" fill="#a8a8b5"/>
+              <rect x="-7" y="36" width="14" height="10" fill="#e0e0e8"/>
+              <path d="M-9,36 L9,36 L7,29 L-7,29 Z" fill="#a8a8b5"/>
+              <rect x="-5" y="22" width="10" height="7" fill="#e0e0e8"/>
+              <path d="M-6,22 L6,22 L0,12 Z" fill="#a8a8b5"/>
+            </g>
+            <!-- 倒影 -->
+            <g opacity=".3" transform="translate(60,100) scale(1,-1)">
+              <path d="M-10,-14 L10,-14 L8,-6 L-8,-6 Z" fill="#c8984a"/>
+            </g>
+          </g>
+          <!-- 左:象鼻山 -->
+          <g transform="translate(30,60)">
+            <path d="M0,60 L0,20 Q30,-5 70,20 Q80,25 85,35 L85,60 Z" fill="#b88c4a"/>
+            <path d="M25,60 L25,35 Q40,25 55,35 L55,60 Z" fill="#7a5c2e" opacity=".4"/>
+            <circle cx="60" cy="22" r="2" fill="#7a5c2e"/>
+          </g>
+        </svg>
+      </div>
+      <div class="left">
+        <div>
+          <div class="date">05.04</div>
+          <div class="weekday">周日 · Day 6</div>
+        </div>
+        <div class="where">桂林</div>
+      </div>
+      <div class="theme-tag">城市漫步</div>
+    </header>
+    <div class="day-body">
+      <div class="meta-row">
+        <span class="chip stay">🏨 住柳州</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">09:00–10:30</span>象鼻山</div>
+          <div class="tl-desc"><span class="tl-tag tag-view">城徽</span>象鼻与水中倒影形成「象山水月」,门票 <em>55 元</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">11:00–12:00</span>东西巷</div>
+          <div class="tl-desc">桂林历史文化街区,明清风格,边逛边吃。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">午餐</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>桂林米粉(崇善米粉、日头火米粉)。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">14:00–15:30</span>靖江王城 · 独秀峰 <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-must">甲天下</span>「桂林山水甲天下」真迹出处,明代藩王府,登独秀峰俯瞰桂林全城。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">16:00–17:30</span>两江四湖 · 日月双塔</div>
+          <div class="tl-desc">白天散步看日月双塔、桂湖,<em>拍照免费</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">桂林 → 柳州</div>
+          <div class="tl-desc">高铁 <em>约 1h</em>,晚上抵达柳州。</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 7 · 05.05 柳州 ============ -->
+  <article class="day d7">
+    <header class="day-head">
+      <div class="scene-wrap">
+        <svg viewBox="0 0 460 136" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- 柳江夜景 + 螺蛳粉 -->
+          <g transform="translate(230,0)">
+            <!-- 江 -->
+            <rect y="85" width="240" height="51" fill="#3e5a6b"/>
+            <!-- 远岸建筑 -->
+            <g fill="#2a3e4a">
+              <rect x="10" y="50" width="18" height="35"/>
+              <rect x="32" y="40" width="22" height="45"/>
+              <rect x="58" y="55" width="16" height="30"/>
+              <rect x="78" y="35" width="28" height="50"/>
+              <rect x="110" y="45" width="20" height="40"/>
+              <rect x="134" y="30" width="26" height="55"/>
+              <rect x="164" y="50" width="18" height="35"/>
+              <rect x="186" y="42" width="22" height="43"/>
+              <rect x="212" y="55" width="16" height="30"/>
+            </g>
+            <!-- 灯光 -->
+            <g fill="#f2c86a" opacity=".9">
+              <rect x="14" y="55" width="3" height="3"/>
+              <rect x="20" y="62" width="3" height="3"/>
+              <rect x="38" y="48" width="3" height="3"/>
+              <rect x="46" y="58" width="3" height="3"/>
+              <rect x="84" y="42" width="3" height="3"/>
+              <rect x="92" y="55" width="3" height="3"/>
+              <rect x="98" y="65" width="3" height="3"/>
+              <rect x="116" y="52" width="3" height="3"/>
+              <rect x="140" y="38" width="3" height="3"/>
+              <rect x="148" y="50" width="3" height="3"/>
+              <rect x="154" y="62" width="3" height="3"/>
+              <rect x="192" y="50" width="3" height="3"/>
+              <rect x="200" y="62" width="3" height="3"/>
+            </g>
+            <!-- 倒影 -->
+            <g fill="#f2c86a" opacity=".35">
+              <rect x="14" y="90" width="3" height="6"/>
+              <rect x="38" y="92" width="3" height="8"/>
+              <rect x="84" y="90" width="3" height="10"/>
+              <rect x="140" y="90" width="3" height="12"/>
+              <rect x="192" y="92" width="3" height="8"/>
+            </g>
+            <!-- 月亮 -->
+            <circle cx="200" cy="25" r="14" fill="#fff0b8"/>
+            <circle cx="195" cy="22" r="14" fill="#3e5a6b"/>
+          </g>
+          <!-- 左:螺蛳粉 -->
+          <g transform="translate(30,52)">
+            <ellipse cx="40" cy="60" rx="45" ry="8" fill="#000" opacity=".1"/>
+            <path d="M0,30 Q0,65 40,65 Q80,65 80,30 Z" fill="#e4d4b0"/>
+            <path d="M0,30 Q0,65 40,65 Q80,65 80,30" stroke="#a67b4a" stroke-width="2" fill="none"/>
+            <ellipse cx="40" cy="30" rx="40" ry="6" fill="#d85f4a" opacity=".85"/>
+            <!-- 粉条 -->
+            <g stroke="#f4e4c4" stroke-width="1.5" fill="none" opacity=".9">
+              <path d="M20,30 Q25,20 30,30"/>
+              <path d="M28,30 Q33,18 38,30"/>
+              <path d="M36,30 Q41,20 46,30"/>
+              <path d="M44,30 Q49,18 54,30"/>
+              <path d="M52,30 Q57,20 62,30"/>
+            </g>
+            <!-- 配料:青菜,花生,腐竹 -->
+            <circle cx="25" cy="28" r="2.5" fill="#5b8f6a"/>
+            <circle cx="55" cy="28" r="2.5" fill="#f2c86a"/>
+            <circle cx="40" cy="26" r="2.5" fill="#c8984a"/>
+            <!-- 蒸汽 -->
+            <g stroke="#fff" stroke-width="1.5" fill="none" opacity=".7" stroke-linecap="round">
+              <path d="M30,22 Q28,14 32,10 Q36,4 34,-4"/>
+              <path d="M45,22 Q43,14 47,10 Q51,4 49,-4"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="left">
+        <div>
+          <div class="date">05.05</div>
+          <div class="weekday">周一 · Day 7</div>
+        </div>
+        <div class="where">柳州 · 成都</div>
+      </div>
+      <div class="theme-tag">螺蛳粉 · 夜景</div>
+    </header>
+    <div class="day-body">
+      <div class="meta-row">
+        <span class="chip">📅 全天自由安排,根据航班 / 高铁时间返程</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-title">柳侯公园</div>
+          <div class="tl-desc">纪念柳宗元,有柳侯祠,<em>城市文化地标</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">吃螺蛳粉!! <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-must">来柳州终极目的</span>推荐:黄氏真味螺蛳粉、西环肥仔螺蛳粉、桂柳螺蛳粉。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">窑埠古镇 · 柳江夜景步道</div>
+          <div class="tl-desc">欧式 + 中式混搭建筑,江边散步,结束行程。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">柳州 → 成都</div>
+          <div class="tl-desc">回家 🐼</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 票务待办 ============ -->
+  <section class="todo">
+    <h3>票务待办</h3>
+    <ul>
+      <li class="ok">
+        <span class="name"><span class="box">✓</span>机票(成都 → 北海)</span>
+        <span class="status">已勾选</span>
+      </li>
+      <li class="ok">
+        <span class="name"><span class="box">✓</span>船票(北海 → 涠洲岛)</span>
+        <span class="status">已勾选</span>
+      </li>
+      <li class="ok">
+        <span class="name"><span class="box">✓</span>北海 → 桂林(高铁)</span>
+        <span class="status">已勾选</span>
+      </li>
+      <li class="ok">
+        <span class="name"><span class="box">✓</span>桂林 → 阳朔(高铁)</span>
+        <span class="status">已勾选</span>
+      </li>
+      <li class="ok">
+        <span class="name"><span class="box">✓</span>涠洲岛 → 北海 船票</span>
+        <span class="status">已勾选</span>
+      </li>
+      <li class="no">
+        <span class="name"><span class="box">!</span>上岛费(涠洲岛)</span>
+        <span class="status">未勾选</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ 旅行关键词 ============ -->
+  <section class="keywords">
+    <h3>旅行关键词</h3>
+    <div class="kw-grid">
+      <div class="kw"><div class="kw-ico">🏝️</div><div class="kw-text">海岛</div></div>
+      <div class="kw"><div class="kw-ico">🌅</div><div class="kw-text">日出日落</div></div>
+      <div class="kw"><div class="kw-ico">🌋</div><div class="kw-text">火山地貌</div></div>
+      <div class="kw"><div class="kw-ico">🦀</div><div class="kw-text">海鲜</div></div>
+      <div class="kw"><div class="kw-ico">🛶</div><div class="kw-text">竹筏</div></div>
+      <div class="kw"><div class="kw-ico">🚴</div><div class="kw-text">骑行</div></div>
+      <div class="kw"><div class="kw-ico">🏯</div><div class="kw-text">古镇</div></div>
+      <div class="kw"><div class="kw-ico">⛰️</div><div class="kw-text">桂林山水</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="footer">
+    <span class="line"></span>
+    愿山海常青 · 归来如初
+  </footer>
+
+</main>
+</body>
+</html>
