@@ -182,35 +182,55 @@
   }
   .day-head{
     position:relative;
-    height:136px;
+    min-height:150px;
     overflow:hidden;
     display:flex;
     color:#fff;
   }
+  /* 左侧水彩晕染蒙版,保证文字对比度(在 SVG 上层,在 .left 下层) */
+  .day-head::after{
+    content:"";
+    position:absolute;inset:0;
+    z-index:2;pointer-events:none;
+    background:
+      radial-gradient(ellipse 75% 130% at 0% 50%,
+        rgba(0,0,0,.38) 0%,
+        rgba(0,0,0,.22) 30%,
+        rgba(0,0,0,.08) 55%,
+        transparent 70%);
+  }
   .day-head .left{
-    flex:0 0 92px;
-    padding:14px 10px 12px 14px;
+    flex:0 0 108px;
+    padding:14px 10px 14px 16px;
     display:flex;flex-direction:column;justify-content:space-between;
-    position:relative;z-index:2;
+    position:relative;z-index:3;
+    gap:12px;
   }
   .day-head .date{
     font-family:'Fraunces',serif;
     font-weight:600;
-    font-size:24px;
+    font-size:26px;
     letter-spacing:1px;
     line-height:1;
+    text-shadow:0 2px 6px rgba(0,0,0,.25);
   }
   .day-head .weekday{
     font-family:'ZCOOL XiaoWei',serif;
-    font-size:14px;
-    opacity:.9;
-    margin-top:4px;
+    font-size:13px;
+    opacity:.92;
+    margin-top:5px;
+    letter-spacing:1px;
+    text-shadow:0 1px 3px rgba(0,0,0,.25);
   }
   .day-head .where{
     font-family:'Ma Shan Zheng',serif;
-    font-size:22px;
-    line-height:1.1;
-    text-shadow:0 1px 2px rgba(0,0,0,.15);
+    font-size:20px;
+    line-height:1.12;
+    letter-spacing:1px;
+    text-shadow:
+      0 1px 0 rgba(0,0,0,.35),
+      0 2px 8px rgba(0,0,0,.35),
+      0 0 1px rgba(0,0,0,.6);
   }
   .day-head .scene-wrap{
     position:absolute;inset:0;
@@ -837,16 +857,22 @@
               <path d="M-2,0 L37,0 L35,-5 L0,-5 Z" fill="#a67b4a"/>
             </g>
           </g>
-          <!-- 左前景:高铁 -->
-          <g transform="translate(10,90)">
-            <rect x="0" y="0" width="80" height="20" rx="8" fill="#fff"/>
-            <path d="M0,0 L15,-8 L80,-8 L80,0 Z" fill="#fff"/>
-            <rect x="18" y="-5" width="8" height="5" fill="#7fc3db"/>
-            <rect x="30" y="-5" width="8" height="5" fill="#7fc3db"/>
-            <rect x="42" y="-5" width="8" height="5" fill="#7fc3db"/>
-            <rect x="54" y="-5" width="8" height="5" fill="#7fc3db"/>
-            <rect x="66" y="-5" width="8" height="5" fill="#7fc3db"/>
-            <path d="M0,0 L80,0 L80,4 L0,4 Z" fill="#3e7252"/>
+          <!-- 右下:高铁穿过画面 -->
+          <g transform="translate(260,108)">
+            <rect x="0" y="0" width="90" height="16" rx="7" fill="#fff"/>
+            <path d="M0,0 L12,-6 L90,-6 L90,0 Z" fill="#fff"/>
+            <rect x="18" y="-3" width="7" height="5" fill="#7fc3db" opacity=".85"/>
+            <rect x="30" y="-3" width="7" height="5" fill="#7fc3db" opacity=".85"/>
+            <rect x="42" y="-3" width="7" height="5" fill="#7fc3db" opacity=".85"/>
+            <rect x="54" y="-3" width="7" height="5" fill="#7fc3db" opacity=".85"/>
+            <rect x="66" y="-3" width="7" height="5" fill="#7fc3db" opacity=".85"/>
+            <rect x="78" y="-3" width="7" height="5" fill="#7fc3db" opacity=".85"/>
+            <path d="M0,2 L12,-4 L18,-4" stroke="#c0a060" stroke-width="1" fill="none"/>
+            <rect x="0" y="2" width="90" height="3" fill="#3e7252"/>
+            <!-- 轨道 -->
+            <g stroke="#fff" stroke-width=".8" opacity=".5">
+              <line x1="-20" y1="6" x2="100" y2="6"/>
+            </g>
           </g>
         </svg>
       </div>
@@ -917,8 +943,8 @@
               <rect x="27" y="-3" width="2" height="4" fill="#5b8f6a"/>
             </g>
           </g>
-          <!-- 左侧骑行人 -->
-          <g transform="translate(40,85)">
+          <!-- 右下前景骑行人 -->
+          <g transform="translate(150,92)">
             <circle cx="10" cy="20" r="8" fill="none" stroke="#3d7355" stroke-width="2"/>
             <circle cx="35" cy="20" r="8" fill="none" stroke="#3d7355" stroke-width="2"/>
             <path d="M10,20 L22,8 L35,20" stroke="#3d7355" stroke-width="1.5" fill="none"/>
@@ -1110,29 +1136,35 @@
             <circle cx="200" cy="25" r="14" fill="#fff0b8"/>
             <circle cx="195" cy="22" r="14" fill="#3e5a6b"/>
           </g>
-          <!-- 左:螺蛳粉 -->
-          <g transform="translate(30,52)">
-            <ellipse cx="40" cy="60" rx="45" ry="8" fill="#000" opacity=".1"/>
-            <path d="M0,30 Q0,65 40,65 Q80,65 80,30 Z" fill="#e4d4b0"/>
-            <path d="M0,30 Q0,65 40,65 Q80,65 80,30" stroke="#a67b4a" stroke-width="2" fill="none"/>
-            <ellipse cx="40" cy="30" rx="40" ry="6" fill="#d85f4a" opacity=".85"/>
+          <!-- 右下:螺蛳粉(前景主体) -->
+          <g transform="translate(310,55)">
+            <ellipse cx="40" cy="62" rx="48" ry="8" fill="#000" opacity=".2"/>
+            <path d="M0,32 Q0,68 40,68 Q80,68 80,32 Z" fill="#f0dfb8"/>
+            <path d="M0,32 Q0,68 40,68 Q80,68 80,32" stroke="#8a5a34" stroke-width="2" fill="none"/>
+            <ellipse cx="40" cy="32" rx="40" ry="6" fill="#d85f4a" opacity=".9"/>
             <!-- 粉条 -->
-            <g stroke="#f4e4c4" stroke-width="1.5" fill="none" opacity=".9">
-              <path d="M20,30 Q25,20 30,30"/>
-              <path d="M28,30 Q33,18 38,30"/>
-              <path d="M36,30 Q41,20 46,30"/>
-              <path d="M44,30 Q49,18 54,30"/>
-              <path d="M52,30 Q57,20 62,30"/>
+            <g stroke="#f8e8c4" stroke-width="1.8" fill="none" opacity=".95" stroke-linecap="round">
+              <path d="M18,30 Q22,20 28,30"/>
+              <path d="M26,30 Q31,18 36,30"/>
+              <path d="M34,30 Q40,20 46,30"/>
+              <path d="M44,30 Q50,18 56,30"/>
+              <path d="M52,30 Q58,20 64,30"/>
             </g>
-            <!-- 配料:青菜,花生,腐竹 -->
-            <circle cx="25" cy="28" r="2.5" fill="#5b8f6a"/>
-            <circle cx="55" cy="28" r="2.5" fill="#f2c86a"/>
-            <circle cx="40" cy="26" r="2.5" fill="#c8984a"/>
+            <!-- 配料:青菜、花生、腐竹 -->
+            <circle cx="22" cy="28" r="3" fill="#5b8f6a"/>
+            <circle cx="58" cy="28" r="3" fill="#f2c86a"/>
+            <circle cx="40" cy="26" r="3" fill="#c8984a"/>
+            <circle cx="30" cy="30" r="2" fill="#5b8f6a"/>
+            <circle cx="50" cy="30" r="2" fill="#a63b2a"/>
             <!-- 蒸汽 -->
-            <g stroke="#fff" stroke-width="1.5" fill="none" opacity=".7" stroke-linecap="round">
-              <path d="M30,22 Q28,14 32,10 Q36,4 34,-4"/>
-              <path d="M45,22 Q43,14 47,10 Q51,4 49,-4"/>
+            <g stroke="#fff" stroke-width="1.8" fill="none" opacity=".75" stroke-linecap="round">
+              <path d="M28,22 Q26,14 30,8 Q34,2 32,-6"/>
+              <path d="M44,22 Q42,14 46,8 Q50,2 48,-6"/>
+              <path d="M56,22 Q54,15 58,9"/>
             </g>
+            <!-- 筷子 -->
+            <line x1="68" y1="18" x2="92" y2="-2" stroke="#c8984a" stroke-width="2" stroke-linecap="round"/>
+            <line x1="72" y1="22" x2="96" y2="2" stroke="#c8984a" stroke-width="2" stroke-linecap="round"/>
           </g>
         </svg>
       </div>
