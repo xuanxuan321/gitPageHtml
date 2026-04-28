@@ -475,9 +475,68 @@
   .tag-view{color:#2a7a9c;}
   .tag-must{color:#d18a00;}
 
+  /* ===== 行李清单 ===== */
+  .packing{
+    margin:18px 14px 0;
+    background:#fffaf0;
+    border:1.5px solid var(--stroke);
+    border-radius:22px;
+    padding:16px 16px 18px;
+    box-shadow:var(--shadow);
+  }
+  .packing h3{
+    margin:0 0 14px;
+    font-family:'Ma Shan Zheng',serif;
+    font-weight:400;
+    font-size:22px;
+    color:var(--sea-deep);
+    letter-spacing:2px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .packing h3::before{content:"🎒";font-size:20px;}
+  .pack-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:10px;
+  }
+  .pack-col{
+    background:#fff8e6;
+    border:1px dashed #d6c48a;
+    border-radius:14px;
+    padding:10px 12px;
+  }
+  .pack-cap{
+    display:inline-block;
+    font-family:'Noto Serif SC',serif;
+    font-weight:600;
+    font-size:12px;
+    color:#fff;
+    background:#5ba06a;
+    padding:2px 10px;
+    border-radius:10px;
+    margin-bottom:8px;
+    letter-spacing:1px;
+  }
+  .pack-cap.to-buy{background:#d15e3a;}
+  .packing ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;}
+  .packing li{
+    display:flex;align-items:center;gap:8px;
+    font-family:'Noto Serif SC',serif;
+    font-size:13px;
+    color:var(--ink);
+    line-height:1.4;
+  }
+  .packing .dot{
+    width:16px;height:16px;border-radius:5px;
+    display:grid;place-items:center;
+    font-size:11px;font-weight:700;flex-shrink:0;
+  }
+  .packing .dot.ok{background:#5ba06a;color:#fff;}
+  .packing .dot.no{background:#fff;border:1.5px solid #d15e3a;color:#d15e3a;}
+
   /* 进入动画 */
   @keyframes rise { from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:none;} }
-  .day,.todo,.keywords,.flow{animation:rise .6s ease both;}
+  .day,.todo,.keywords,.flow,.packing{animation:rise .6s ease both;}
   .day:nth-child(2){animation-delay:.05s;}
   .day:nth-child(3){animation-delay:.1s;}
   .day:nth-child(4){animation-delay:.15s;}
@@ -588,14 +647,16 @@
       <div class="flow-arrow"><span class="mode">🚢</span></div>
       <div class="flow-node"><div class="icon">🏖️</div><div class="label">北海</div></div>
       <div class="flow-arrow"><span class="mode">🚄</span></div>
-      <div class="flow-node"><div class="icon">🏞️</div><div class="label">桂林</div></div>
-      <div class="flow-arrow"><span class="mode">🚄</span></div>
       <div class="flow-node"><div class="icon">🚣</div><div class="label">阳朔</div></div>
+      <div class="flow-arrow"><span class="mode">🚌</span></div>
+      <div class="flow-node"><div class="icon">🛶</div><div class="label">兴坪</div></div>
       <div class="flow-arrow"><span class="mode">🚄</span></div>
       <div class="flow-node"><div class="icon">🏯</div><div class="label">桂林</div></div>
       <div class="flow-arrow"><span class="mode">🚄</span></div>
       <div class="flow-node"><div class="icon">🍜</div><div class="label">柳州</div></div>
-      <div class="flow-arrow"><span class="mode">✈️</span></div>
+      <div class="flow-arrow"><span class="mode">🚄</span></div>
+      <div class="flow-node"><div class="icon">🏯</div><div class="label">桂林</div></div>
+      <div class="flow-arrow"><span class="mode">🚄</span></div>
       <div class="flow-node"><div class="icon">🐼</div><div class="label">成都</div></div>
     </div>
   </section>
@@ -725,7 +786,7 @@
         </div>
         <div class="tl-item">
           <div class="tl-title">南湾街午餐</div>
-          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>南湾市场现买海鲜找店加工:濑尿虾、石斑鱼、扇贝;另外椰子鸡、香蕉猪、烤生蚝都值得尝。</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>推荐 <em>无意馆</em>;南湾是岛上最热闹的市场,可现买海鲜找店加工:濑尿虾、石斑鱼、扇贝;椰子鸡、香蕉猪、烤生蚝都值得尝。</div>
         </div>
         <div class="tl-item">
           <div class="tl-title"><span class="time">13:30–16:00</span>石螺口海滩</div>
@@ -881,24 +942,28 @@
           <div class="date">05.02</div>
           <div class="weekday">周五 · Day 4</div>
         </div>
-        <div class="where">北海 · 阳朔</div>
+        <div class="where">北海·阳朔·兴坪</div>
       </div>
-      <div class="theme-tag">古镇 · 城市漫步</div>
+      <div class="theme-tag">骑楼 · 西街</div>
     </header>
     <div class="day-body">
       <div class="meta-row">
         <span class="chip ticket-ok">✓ 北海→桂林 高铁</span>
         <span class="chip ticket-ok">✓ 桂林→阳朔 高铁</span>
-        <span class="chip stay">🏨 住西街外围 / 县城江边</span>
+        <span class="chip stay">🏨 住兴坪</span>
       </div>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-title"><span class="time">09:00–10:30</span>冠头岭</div>
-          <div class="tl-desc"><span class="tl-tag tag-view">景色</span>北海最高点,登顶俯瞰三面海景,有灯塔,<em>适合晨间徒步</em>。</div>
+          <div class="tl-desc"><span class="tl-tag tag-view">景色</span>北海最高点,登顶可俯瞰三面海景,有灯塔,<em>适合晨间徒步</em>。</div>
         </div>
         <div class="tl-item">
-          <div class="tl-title"><span class="time">10:30–11:30</span>北海老街 · 午餐</div>
-          <div class="tl-desc">百年骑楼街,吃完继续赶车。</div>
+          <div class="tl-title"><span class="time">10:30–11:30</span>北海老街</div>
+          <div class="tl-desc">百年骑楼街,边逛边拍。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">老街午餐</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>吃完赶车去高铁站。</div>
         </div>
         <div class="tl-item">
           <div class="tl-title"><span class="time">12:49–16:17</span>北海 → 桂林</div>
@@ -906,11 +971,15 @@
         </div>
         <div class="tl-item">
           <div class="tl-title"><span class="time">17:04–17:27</span>桂林 → 阳朔</div>
-          <div class="tl-desc">高铁 <em>25min</em>,下午到阳朔。</div>
+          <div class="tl-desc">高铁 <em>25min</em>,傍晚到阳朔。</div>
         </div>
         <div class="tl-item">
           <div class="tl-title">阳朔西街逛吃</div>
           <div class="tl-desc"><span class="tl-tag tag-food">必吃</span>啤酒鱼(推荐大师傅 / 谢大姐)、田螺酿、桂林米粉、芒果帮主(甜品)。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">阳朔 → 兴坪</div>
+          <div class="tl-desc">车程约 <em>40min</em>,夜宿兴坪,方便第二天清晨乘竹筏。</div>
         </div>
       </div>
     </div>
@@ -959,135 +1028,54 @@
           <div class="date">05.03</div>
           <div class="weekday">周六 · Day 5</div>
         </div>
-        <div class="where">阳朔·兴坪·桂林</div>
+        <div class="where">兴坪·阳朔·桂林</div>
       </div>
       <div class="theme-tag">竹筏 · 骑行</div>
     </header>
     <div class="day-body">
       <div class="meta-row">
-        <span class="chip stay">🏨 住万象城 / 窑埠古镇</span>
+        <span class="chip ticket-ok">✓ 阳朔→桂林 高铁</span>
+        <span class="chip ticket-warn">✗ 遇龙河竹筏票</span>
+        <span class="chip stay">🏨 住桂林</span>
       </div>
       <div class="timeline">
         <div class="tl-item">
-          <div class="tl-title">阳朔 → 兴坪</div>
-          <div class="tl-desc">班车约 <em>40min</em> 或打车。</div>
-        </div>
-        <div class="tl-item">
           <div class="tl-title"><span class="time">08:30–10:00</span>兴坪漓江竹筏 <span class="star">★</span></div>
-          <div class="tl-desc"><span class="tl-tag tag-must">20元背景</span>九马画山、黄布倒影精华段;竹筏 <em>约 98 元 / 人</em>(需 1.2m+),约 1.5h。</div>
+          <div class="tl-desc"><span class="tl-tag tag-must">20元背景</span>兴坪段是漓江精华:九马画山、黄布倒影;竹筏 <em>约 98 元 / 人</em>(需 1.2m+),全程约 1.5h。</div>
         </div>
         <div class="tl-item">
-          <div class="tl-title">兴坪古镇 · 返回阳朔</div>
-          <div class="tl-desc">逛完 <em>11:00</em> 左右返回阳朔吃午餐。</div>
+          <div class="tl-title">兴坪古镇打卡</div>
+          <div class="tl-desc">就在古镇里寻 <em>20 元人民币背景取景点</em>,顺便逛逛。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">11:00</span>返回阳朔</div>
+          <div class="tl-desc">车程约 <em>40min</em>,可租电瓶车在阳朔逛。</div>
         </div>
         <div class="tl-item">
           <div class="tl-title">阳朔午餐</div>
           <div class="tl-desc"><span class="tl-tag tag-food">美食</span>啤酒鱼、艾叶粑。</div>
         </div>
         <div class="tl-item">
-          <div class="tl-title"><span class="time">13:30–16:00</span>遇龙河竹筏漂流 <span class="star">★</span></div>
-          <div class="tl-desc"><span class="tl-tag tag-must">阳朔必玩</span>比漓江更小家碧玉,手撑竹筏过小坝有水花;推荐 <em>金龙桥 → 旧县段</em>(精华,约 1.5h)。</div>
+          <div class="tl-title"><span class="time">13:30–16:00</span>遇龙河竹筏 · 水厄底码头 <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-must">阳朔必玩</span>比漓江更小家碧玉,手撑竹筏过小坝有水花。<em>前一天晚上 8 点</em>遇龙景区小程序开抢第二天竹筏票;推荐 <em>金龙桥 → 旧县段</em>(精华,约 1.5h)。</div>
         </div>
         <div class="tl-item">
           <div class="tl-title"><span class="time">16:30–18:00</span>十里画廊骑行</div>
-          <div class="tl-desc">沿途蝴蝶泉、大榕树、月亮山、图腾古道,田园 + 喀斯特山水。</div>
+          <div class="tl-desc">约 <em>20 公里</em> 经典田园 + 喀斯特骑行线。沿途:凤鸣停车场 → 热气球基地 → 蝴蝶泉(不进) → 工农桥 → 安在野民宿 → 遇龙水韵 → 晚舟亭 → 骥马码头 → 双流义渡亭 → 一尺稻田咖啡 → 夏棠码头 → 返程。</div>
         </div>
         <div class="tl-item">
-          <div class="tl-title">阳朔 → 桂林</div>
-          <div class="tl-desc">高铁 <em>约 25min</em>,晚上抵达桂林。</div>
+          <div class="tl-title">晚餐</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>桂林米粉(干捞粉)、油茶、艾叶粑、荔浦芋头扣肉。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">18:52</span>阳朔 → 桂林</div>
+          <div class="tl-desc">阳朔县城距阳朔站约 <em>20km</em>,打车 30–35min;高铁约 25min 到桂林。</div>
         </div>
       </div>
     </div>
   </article>
 
-  <!-- ============ DAY 6 · 05.04 桂林 ============ -->
-  <article class="day d6">
-    <header class="day-head">
-      <div class="scene-wrap">
-        <svg viewBox="0 0 460 136" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <!-- 日月双塔 -->
-          <g transform="translate(230,0)">
-            <!-- 湖水 -->
-            <rect y="100" width="240" height="36" fill="#7fa8c4" opacity=".75"/>
-            <!-- 远山 -->
-            <path d="M0,100 Q30,60 55,95 Q80,55 110,95 Q140,65 170,95 Q200,70 240,95 L240,100 L0,100 Z" fill="#a07436" opacity=".5"/>
-            <!-- 日塔(金色) -->
-            <g transform="translate(60,20)">
-              <path d="M-10,80 L10,80 L8,72 L-8,72 Z" fill="#c8984a"/>
-              <rect x="-8" y="60" width="16" height="12" fill="#f2c86a"/>
-              <path d="M-10,60 L10,60 L8,52 L-8,52 Z" fill="#c8984a"/>
-              <rect x="-7" y="42" width="14" height="10" fill="#f2c86a"/>
-              <path d="M-9,42 L9,42 L7,35 L-7,35 Z" fill="#c8984a"/>
-              <rect x="-5" y="28" width="10" height="7" fill="#f2c86a"/>
-              <path d="M-6,28 L6,28 L0,18 Z" fill="#c8984a"/>
-              <rect x="-1" y="10" width="2" height="10" fill="#8a5a34"/>
-            </g>
-            <!-- 月塔(银色) -->
-            <g transform="translate(140,26)">
-              <path d="M-10,74 L10,74 L8,66 L-8,66 Z" fill="#a8a8b5"/>
-              <rect x="-8" y="54" width="16" height="12" fill="#e0e0e8"/>
-              <path d="M-10,54 L10,54 L8,46 L-8,46 Z" fill="#a8a8b5"/>
-              <rect x="-7" y="36" width="14" height="10" fill="#e0e0e8"/>
-              <path d="M-9,36 L9,36 L7,29 L-7,29 Z" fill="#a8a8b5"/>
-              <rect x="-5" y="22" width="10" height="7" fill="#e0e0e8"/>
-              <path d="M-6,22 L6,22 L0,12 Z" fill="#a8a8b5"/>
-            </g>
-            <!-- 倒影 -->
-            <g opacity=".3" transform="translate(60,100) scale(1,-1)">
-              <path d="M-10,-14 L10,-14 L8,-6 L-8,-6 Z" fill="#c8984a"/>
-            </g>
-          </g>
-          <!-- 左:象鼻山 -->
-          <g transform="translate(30,60)">
-            <path d="M0,60 L0,20 Q30,-5 70,20 Q80,25 85,35 L85,60 Z" fill="#b88c4a"/>
-            <path d="M25,60 L25,35 Q40,25 55,35 L55,60 Z" fill="#7a5c2e" opacity=".4"/>
-            <circle cx="60" cy="22" r="2" fill="#7a5c2e"/>
-          </g>
-        </svg>
-      </div>
-      <div class="left">
-        <div>
-          <div class="date">05.04</div>
-          <div class="weekday">周日 · Day 6</div>
-        </div>
-        <div class="where">桂林</div>
-      </div>
-      <div class="theme-tag">城市漫步</div>
-    </header>
-    <div class="day-body">
-      <div class="meta-row">
-        <span class="chip stay">🏨 住柳州</span>
-      </div>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-title"><span class="time">09:00–10:30</span>象鼻山</div>
-          <div class="tl-desc"><span class="tl-tag tag-view">城徽</span>象鼻与水中倒影形成「象山水月」,门票 <em>55 元</em>。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-title"><span class="time">11:00–12:00</span>东西巷</div>
-          <div class="tl-desc">桂林历史文化街区,明清风格,边逛边吃。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-title">午餐</div>
-          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>桂林米粉(崇善米粉、日头火米粉)。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-title"><span class="time">14:00–15:30</span>靖江王城 · 独秀峰 <span class="star">★</span></div>
-          <div class="tl-desc"><span class="tl-tag tag-must">甲天下</span>「桂林山水甲天下」真迹出处,明代藩王府,登独秀峰俯瞰桂林全城。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-title"><span class="time">16:00–17:30</span>两江四湖 · 日月双塔</div>
-          <div class="tl-desc">白天散步看日月双塔、桂湖,<em>拍照免费</em>。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-title">桂林 → 柳州</div>
-          <div class="tl-desc">高铁 <em>约 1h</em>,晚上抵达柳州。</div>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <!-- ============ DAY 7 · 05.05 柳州 ============ -->
+  <!-- ============ DAY 6 · 05.04 桂林→柳州→桂林 ============ -->
   <article class="day d7">
     <header class="day-head">
       <div class="scene-wrap">
@@ -1170,33 +1158,131 @@
       </div>
       <div class="left">
         <div>
-          <div class="date">05.05</div>
-          <div class="weekday">周一 · Day 7</div>
+          <div class="date">05.04</div>
+          <div class="weekday">周日 · Day 6</div>
         </div>
-        <div class="where">柳州 · 成都</div>
+        <div class="where">桂林·柳州</div>
       </div>
-      <div class="theme-tag">螺蛳粉 · 夜景</div>
+      <div class="theme-tag">螺蛳粉 · 茶麸</div>
     </header>
     <div class="day-body">
       <div class="meta-row">
-        <span class="chip">📅 全天自由安排,根据航班 / 高铁时间返程</span>
+        <span class="chip ticket-warn">✗ 桂林→柳州 高铁</span>
+        <span class="chip ticket-warn">✗ 柳州→桂林 高铁</span>
+        <span class="chip stay">🏨 住桂林</span>
       </div>
       <div class="timeline">
         <div class="tl-item">
-          <div class="tl-title">柳侯公园</div>
-          <div class="tl-desc">纪念柳宗元,有柳侯祠,<em>城市文化地标</em>。</div>
+          <div class="tl-title">桂林 → 柳州</div>
+          <div class="tl-desc">高铁 <em>约 1h</em>,当日往返。</div>
         </div>
         <div class="tl-item">
-          <div class="tl-title">吃螺蛳粉!! <span class="star">★</span></div>
-          <div class="tl-desc"><span class="tl-tag tag-must">来柳州终极目的</span>推荐:黄氏真味螺蛳粉、西环肥仔螺蛳粉、桂柳螺蛳粉。</div>
+          <div class="tl-title">龙潭公园</div>
+          <div class="tl-desc"><span class="tl-tag tag-view">景色</span>柳州本地人遛弯地,山林湖泊,<em>免费</em>。</div>
         </div>
         <div class="tl-item">
-          <div class="tl-title">窑埠古镇 · 柳江夜景步道</div>
-          <div class="tl-desc">欧式 + 中式混搭建筑,江边散步,结束行程。</div>
+          <div class="tl-title">五星螺步行街 <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-must">来柳州终极目的</span>五星街:聚宝螺蛳粉、桂B螺蛳粉、张飞木薯羹、卢姐炒冰、酸嘢、臭豆腐;驾鹤路:金弟炒螺蛳粉。</div>
         </div>
         <div class="tl-item">
-          <div class="tl-title">柳州 → 成都</div>
-          <div class="tl-desc">回家 🐼</div>
+          <div class="tl-title">茶麸洗头 · 初见</div>
+          <div class="tl-desc"><span class="tl-tag tag-must">特色体验</span>柳州特色茶麸古法洗护,推荐 <em>「初见」</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">窑埠古镇 / 柳江夜景步道</div>
+          <div class="tl-desc">欧式 + 中式混搭建筑,沿江散步看夜景。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">柳州 → 桂林</div>
+          <div class="tl-desc">高铁 <em>约 1h</em>,夜回桂林休息。</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 7 · 05.05 桂林 → 成都 ============ -->
+  <article class="day d6">
+    <header class="day-head">
+      <div class="scene-wrap">
+        <svg viewBox="0 0 460 136" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- 日月双塔 -->
+          <g transform="translate(230,0)">
+            <!-- 湖水 -->
+            <rect y="100" width="240" height="36" fill="#7fa8c4" opacity=".75"/>
+            <!-- 远山 -->
+            <path d="M0,100 Q30,60 55,95 Q80,55 110,95 Q140,65 170,95 Q200,70 240,95 L240,100 L0,100 Z" fill="#a07436" opacity=".5"/>
+            <!-- 日塔(金色) -->
+            <g transform="translate(60,20)">
+              <path d="M-10,80 L10,80 L8,72 L-8,72 Z" fill="#c8984a"/>
+              <rect x="-8" y="60" width="16" height="12" fill="#f2c86a"/>
+              <path d="M-10,60 L10,60 L8,52 L-8,52 Z" fill="#c8984a"/>
+              <rect x="-7" y="42" width="14" height="10" fill="#f2c86a"/>
+              <path d="M-9,42 L9,42 L7,35 L-7,35 Z" fill="#c8984a"/>
+              <rect x="-5" y="28" width="10" height="7" fill="#f2c86a"/>
+              <path d="M-6,28 L6,28 L0,18 Z" fill="#c8984a"/>
+              <rect x="-1" y="10" width="2" height="10" fill="#8a5a34"/>
+            </g>
+            <!-- 月塔(银色) -->
+            <g transform="translate(140,26)">
+              <path d="M-10,74 L10,74 L8,66 L-8,66 Z" fill="#a8a8b5"/>
+              <rect x="-8" y="54" width="16" height="12" fill="#e0e0e8"/>
+              <path d="M-10,54 L10,54 L8,46 L-8,46 Z" fill="#a8a8b5"/>
+              <rect x="-7" y="36" width="14" height="10" fill="#e0e0e8"/>
+              <path d="M-9,36 L9,36 L7,29 L-7,29 Z" fill="#a8a8b5"/>
+              <rect x="-5" y="22" width="10" height="7" fill="#e0e0e8"/>
+              <path d="M-6,22 L6,22 L0,12 Z" fill="#a8a8b5"/>
+            </g>
+            <!-- 倒影 -->
+            <g opacity=".3" transform="translate(60,100) scale(1,-1)">
+              <path d="M-10,-14 L10,-14 L8,-6 L-8,-6 Z" fill="#c8984a"/>
+            </g>
+          </g>
+          <!-- 左:象鼻山 -->
+          <g transform="translate(30,60)">
+            <path d="M0,60 L0,20 Q30,-5 70,20 Q80,25 85,35 L85,60 Z" fill="#b88c4a"/>
+            <path d="M25,60 L25,35 Q40,25 55,35 L55,60 Z" fill="#7a5c2e" opacity=".4"/>
+            <circle cx="60" cy="22" r="2" fill="#7a5c2e"/>
+          </g>
+        </svg>
+      </div>
+      <div class="left">
+        <div>
+          <div class="date">05.05</div>
+          <div class="weekday">周一 · Day 7</div>
+        </div>
+        <div class="where">桂林 · 成都</div>
+      </div>
+      <div class="theme-tag">山水甲天下</div>
+    </header>
+    <div class="day-body">
+      <div class="meta-row">
+        <span class="chip ticket-warn">✗ 象鼻山门票预约(提前7天)</span>
+        <span class="chip ticket-warn">✗ 桂林→成都 高铁</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">09:00–10:30</span>象鼻山</div>
+          <div class="tl-desc"><span class="tl-tag tag-view">城徽</span>象鼻与水中倒影形成「象山水月」,门票需 <em>提前 7 天预约</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">11:00–12:00</span>东西巷</div>
+          <div class="tl-desc">桂林历史文化街区,明清风格,边逛边吃。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">午餐</div>
+          <div class="tl-desc"><span class="tl-tag tag-food">美食</span>桂林米粉(崇善米粉、日头火米粉)、荔浦芋扣肉、马蹄糕、油茶、椿记烧鹅。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title"><span class="time">14:00–15:30</span>靖江王城 · 独秀峰 <span class="star">★</span></div>
+          <div class="tl-desc"><span class="tl-tag tag-must">甲天下</span>「桂林山水甲天下」真迹出处,明代藩王府,登独秀峰俯瞰桂林全城。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">两江四湖 · 日月双塔</div>
+          <div class="tl-desc">白天散步看日月双塔、桂湖,<em>拍照免费</em>。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-title">桂林 → 成都</div>
+          <div class="tl-desc">高铁回家 🐼</div>
         </div>
       </div>
     </div>
@@ -1215,6 +1301,10 @@
         <span class="status">已勾选</span>
       </li>
       <li class="ok">
+        <span class="name"><span class="box">✓</span>船票(涠洲岛 → 北海)</span>
+        <span class="status">已勾选</span>
+      </li>
+      <li class="ok">
         <span class="name"><span class="box">✓</span>北海 → 桂林(高铁)</span>
         <span class="status">已勾选</span>
       </li>
@@ -1223,14 +1313,70 @@
         <span class="status">已勾选</span>
       </li>
       <li class="ok">
-        <span class="name"><span class="box">✓</span>涠洲岛 → 北海 船票</span>
+        <span class="name"><span class="box">✓</span>阳朔 → 桂林(高铁 18:52)</span>
         <span class="status">已勾选</span>
       </li>
       <li class="no">
         <span class="name"><span class="box">!</span>上岛费(涠洲岛)</span>
         <span class="status">未勾选</span>
       </li>
+      <li class="no">
+        <span class="name"><span class="box">!</span>遇龙河竹筏票(前晚 8 点抢)</span>
+        <span class="status">未勾选</span>
+      </li>
+      <li class="no">
+        <span class="name"><span class="box">!</span>桂林 → 柳州(高铁)</span>
+        <span class="status">未勾选</span>
+      </li>
+      <li class="no">
+        <span class="name"><span class="box">!</span>柳州 → 桂林(高铁)</span>
+        <span class="status">未勾选</span>
+      </li>
+      <li class="no">
+        <span class="name"><span class="box">!</span>象鼻山门票预约(提前 7 天)</span>
+        <span class="status">未勾选</span>
+      </li>
+      <li class="no">
+        <span class="name"><span class="box">!</span>桂林 → 成都(高铁)</span>
+        <span class="status">未勾选</span>
+      </li>
     </ul>
+  </section>
+
+  <!-- ============ 行李清单 ============ -->
+  <section class="packing">
+    <h3>行李清单</h3>
+    <div class="pack-grid">
+      <div class="pack-col">
+        <div class="pack-cap">已备齐</div>
+        <ul>
+          <li><span class="dot ok">✓</span>身份证</li>
+          <li><span class="dot ok">✓</span>衣服 / 袜子 / 内衣裤 / 薄外套</li>
+          <li><span class="dot ok">✓</span>耳塞</li>
+          <li><span class="dot ok">✓</span>胃药 · 蓝莓素护眼片</li>
+          <li><span class="dot ok">✓</span>墨镜</li>
+          <li><span class="dot ok">✓</span>化妆品 + 防晒 + 面膜</li>
+          <li><span class="dot ok">✓</span>卸妆膏 / 卸妆油</li>
+          <li><span class="dot ok">✓</span>直发梳 · 梳子</li>
+          <li><span class="dot ok">✓</span>洗面奶</li>
+          <li><span class="dot ok">✓</span>湿巾 · 一次性洗脸巾</li>
+          <li><span class="dot ok">✓</span>一次性马桶套</li>
+          <li><span class="dot ok">✓</span>耳机 · 自拍杆</li>
+          <li><span class="dot ok">✓</span>一次性雨衣</li>
+          <li><span class="dot ok">✓</span>垃圾袋 / 保鲜袋</li>
+        </ul>
+      </div>
+      <div class="pack-col">
+        <div class="pack-cap to-buy">待补</div>
+        <ul>
+          <li><span class="dot no">!</span>充电器(手机 + 手表)</li>
+          <li><span class="dot no">!</span>充电宝</li>
+          <li><span class="dot no">!</span>雨伞</li>
+          <li><span class="dot no">!</span>发蜡</li>
+          <li><span class="dot no">!</span>牙线</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- ============ 旅行关键词 ============ -->
