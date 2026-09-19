@@ -824,8 +824,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 3,
-    "totalWordCount": 17653,
+    "totalItems": 4,
+    "totalWordCount": 24853,
     "items": [
       {
         "id": "1-10",
@@ -850,6 +850,14 @@
         "wordCount": 5985,
         "path": "逆天邪神/551-560 章.txt",
         "size": 20074
+      },
+      {
+        "id": "561-570",
+        "title": "第561章 - 第570章",
+        "snippet": "《逆天邪神》561-",
+        "wordCount": 7200,
+        "path": "逆天邪神/561-570 章.txt",
+        "size": 24046
       }
     ]
   }
