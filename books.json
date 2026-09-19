@@ -824,8 +824,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 3,
-    "totalWordCount": 19377,
+    "totalItems": 4,
+    "totalWordCount": 25946,
     "items": [
       {
         "id": "541-550",
@@ -850,6 +850,14 @@
         "wordCount": 7200,
         "path": "逆天邪神/561-570 章.txt",
         "size": 24046
+      },
+      {
+        "id": "571-580",
+        "title": "第571章 - 第580章",
+        "snippet": "《逆天邪神》571-",
+        "wordCount": 6569,
+        "path": "逆天邪神/571-580 章.txt",
+        "size": 22088
       }
     ]
   }
