@@ -5,8 +5,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 11,
-    "totalWordCount": 82108,
+    "totalItems": 12,
+    "totalWordCount": 89933,
     "items": [
       {
         "id": "541-550",
@@ -95,6 +95,14 @@
         "wordCount": 6808,
         "path": "逆天邪神/641-650 章.txt",
         "size": 22587
+      },
+      {
+        "id": "651-660",
+        "title": "第651章 - 第660章",
+        "snippet": "《逆天邪神》651-",
+        "wordCount": 7825,
+        "path": "逆天邪神/651-660 章.txt",
+        "size": 25861
       }
     ]
   }
