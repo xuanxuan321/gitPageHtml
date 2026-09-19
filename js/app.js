@@ -329,6 +329,12 @@ function renderChapterList() {
               <span class="snippet-tag">前10字标题</span>
               <span>${item.snippet || '暂无内容'}</span>
             </div>
+            ${item.wordCount ? `
+              <div class="item-word-count" title="有效字数（仅含汉字和数字）">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                <span>${item.wordCount.toLocaleString()} 字</span>
+              </div>
+            ` : ''}
           </div>
         </div>
         <div class="item-action">
@@ -409,12 +415,15 @@ async function handleCopyItem(bookId, itemId) {
       throw new Error('写入剪贴板失败');
     }
 
+    // 计算有效字数（只包含汉字和数字，不含标点符号）
+    const wordCount = item.wordCount || countValidChars(text);
+
     // 标记为已读
     markItemAsRead(bookId, itemId);
 
-    // 弹出 Toast
+    // 弹出 Toast（展示具体复制的字数）
     AppState.lastCopiedItem = { bookId, itemId };
-    showToast('内容已复制到剪贴板！已自动标记为已读', true, true);
+    showToast(`已复制 ${wordCount.toLocaleString()} 字到剪贴板！已自动标记为已读`, true, true);
 
     // 同步刷新视图
     renderChapterStats();
@@ -659,9 +668,10 @@ async function openReaderModal(book, item) {
 
   if (!modal || !contentEl) return;
 
-  // 设置头部标题与章节信息
+  // 设置头部标题与章节信息及字数
   if (bookNameEl) bookNameEl.textContent = book.title;
-  if (chapterRangeEl) chapterRangeEl.textContent = item.title;
+  const wordCountStr = item.wordCount ? ` · ${item.wordCount.toLocaleString()} 字` : '';
+  if (chapterRangeEl) chapterRangeEl.textContent = `${item.title}${wordCountStr}`;
 
   // 重置内容与滚动位置
   contentEl.innerHTML = '';
@@ -744,6 +754,13 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+// 统计有效字数（只包含汉字和数字，不包含标点符号与空白字符）
+function countValidChars(text) {
+  if (!text) return 0;
+  const matches = text.match(/[\u4e00-\u9fa50-9]/g);
+  return matches ? matches.length : 0;
 }
 
 

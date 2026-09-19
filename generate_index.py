@@ -38,6 +38,20 @@ def extract_snippet(file_path):
         print(f"读取文件失败: {file_path}, 错误: {e}")
         return "暂无预览"
 
+def count_words(file_path):
+    """
+    严格统计文件中的有效字数：只包含汉字和数字，不包含标点符号和空白字符
+    """
+    try:
+        with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            text = f.read()
+            # 匹配所有汉字和数字：\u4e00-\u9fa5（汉字）与 0-9（数字）
+            matches = re.findall(r'[\u4e00-\u9fa50-9]', text)
+            return len(matches)
+    except Exception as e:
+        print(f"统计字数失败: {file_path}, 错误: {e}")
+        return 0
+
 def scan_books():
     books = []
     
@@ -80,6 +94,7 @@ def scan_books():
         for start_num, end_num, fname in txt_files:
             file_abs_path = os.path.join(item_path, fname)
             snippet = extract_snippet(file_abs_path)
+            word_count = count_words(file_abs_path)
             file_size = os.path.getsize(file_abs_path)
             
             if start_num != 999999:
@@ -93,6 +108,7 @@ def scan_books():
                 "id": item_id,
                 "title": item_title,
                 "snippet": snippet,
+                "wordCount": word_count,
                 "path": f"{book_name}/{fname}",
                 "size": file_size
             })
@@ -102,6 +118,8 @@ def scan_books():
             "description": f"《{book_name}》精彩章节持续收录。"
         })
         
+        total_words = sum(it["wordCount"] for it in items)
+        
         books.append({
             "id": book_name,
             "title": book_name,
@@ -109,6 +127,7 @@ def scan_books():
             "category": meta["category"],
             "description": meta["description"],
             "totalItems": len(items),
+            "totalWordCount": total_words,
             "items": items
         })
         
