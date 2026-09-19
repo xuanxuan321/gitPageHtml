@@ -5,8 +5,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 8,
-    "totalWordCount": 58953,
+    "totalItems": 9,
+    "totalWordCount": 68391,
     "items": [
       {
         "id": "541-550",
@@ -71,6 +71,14 @@
         "wordCount": 7691,
         "path": "逆天邪神/611-620 章.txt",
         "size": 25548
+      },
+      {
+        "id": "621-630",
+        "title": "第621章 - 第630章",
+        "snippet": "《逆天邪神》621-",
+        "wordCount": 9438,
+        "path": "逆天邪神/621-630 章.txt",
+        "size": 31364
       }
     ]
   }
