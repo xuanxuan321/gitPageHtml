@@ -33,8 +33,6 @@ const STORAGE_KEYS = {
   LAST_SYNC: 'novel_gist_last_sync_v1'
 };
 
-// 预设分类（与设计原型图完全一致）
-const PRESET_CATEGORIES = ['全部', '玄幻', '都市', '游戏', '奇幻', '仙侠', '其他'];
 
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
@@ -122,18 +120,36 @@ async function loadBooksData() {
   }
 }
 
-// 4. 渲染分类标签
+// 4. 动态提取并渲染分类标签（严格来源于已有小说）
 function renderCategories() {
   const container = document.getElementById('category-pills');
   if (!container) return;
 
-  // 聚合所有已有分类与预设分类
-  const categories = [...PRESET_CATEGORIES];
+  // 严格从当前已有小说中动态提取分类（保持出现顺序并去重）
+  const extractedCategories = [];
   AppState.books.forEach(b => {
-    if (b.category && !categories.includes(b.category)) {
-      categories.push(b.category);
+    const cat = b.category ? b.category.trim() : '';
+    if (cat && !extractedCategories.includes(cat)) {
+      extractedCategories.push(cat);
     }
   });
+
+  // 如果没有分类或只有 1 种分类，则无需分类筛选栏
+  if (extractedCategories.length <= 1) {
+    container.innerHTML = '';
+    container.style.display = 'none';
+    return;
+  }
+
+  container.style.display = 'flex';
+
+  // 分类列表：包含 "全部" 以及从已有小说中动态提取出的分类
+  const categories = ['全部', ...extractedCategories];
+
+  // 校验当前分类有效性
+  if (!categories.includes(AppState.currentCategory)) {
+    AppState.currentCategory = '全部';
+  }
 
   container.innerHTML = categories.map(cat => `
     <button class="pill-btn ${cat === AppState.currentCategory ? 'active' : ''}" data-cat="${cat}">
@@ -143,9 +159,14 @@ function renderCategories() {
 
   container.querySelectorAll('.pill-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      container.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      AppState.currentCategory = btn.getAttribute('data-cat');
+      const cat = btn.getAttribute('data-cat');
+      // 点击已激活的单项分类可再次取消，切回全部
+      if (AppState.currentCategory === cat && cat !== '全部') {
+        AppState.currentCategory = '全部';
+      } else {
+        AppState.currentCategory = cat;
+      }
+      renderCategories();
       renderBookList();
     });
   });
