@@ -564,6 +564,17 @@ function switchView(viewName) {
 
 // 16. 全局事件绑定
 function bindGlobalEvents() {
+  // 书库主页刷新按钮
+  const homeRefreshBtn = document.getElementById('home-refresh-btn');
+  if (homeRefreshBtn) {
+    homeRefreshBtn.addEventListener('click', () => {
+      homeRefreshBtn.classList.add('rotating');
+      setTimeout(() => {
+        location.reload();
+      }, 150);
+    });
+  }
+
   // 点击章节顶部导航栏平滑回顶
   const chapterNav = document.querySelector('.chapter-nav-header');
   if (chapterNav) {
