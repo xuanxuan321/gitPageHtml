@@ -5,9 +5,17 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 1,
-    "totalWordCount": 6458664,
+    "totalItems": 2,
+    "totalWordCount": 6463794,
     "items": [
+      {
+        "id": "1291-1300",
+        "title": "第1291章 - 第1300章",
+        "snippet": "《凡人修仙传》第12",
+        "wordCount": 5130,
+        "path": "凡人修仙传/1291-1300 章.txt",
+        "size": 16959
+      },
       {
         "id": "凡人修仙传",
         "title": "凡人修仙传",
