@@ -1,12 +1,31 @@
 [
   {
+    "id": "凡人修仙传",
+    "title": "凡人修仙传",
+    "cover": "凡人修仙传/封面.jpeg",
+    "category": "仙侠",
+    "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
+    "totalItems": 1,
+    "totalWordCount": 6458664,
+    "items": [
+      {
+        "id": "凡人修仙传",
+        "title": "凡人修仙传",
+        "snippet": "凡人修仙传作者：忘语",
+        "wordCount": 6458664,
+        "path": "凡人修仙传/凡人修仙传.txt",
+        "size": 21717733
+      }
+    ]
+  },
+  {
     "id": "逆天邪神",
     "title": "逆天邪神",
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 12,
-    "totalWordCount": 89933,
+    "totalItems": 13,
+    "totalWordCount": 4023758,
     "items": [
       {
         "id": "541-550",
@@ -103,6 +122,14 @@
         "wordCount": 7825,
         "path": "逆天邪神/651-660 章.txt",
         "size": 25861
+      },
+      {
+        "id": "逆天邪神",
+        "title": "逆天邪神",
+        "snippet": "逆天邪神作者：火星引",
+        "wordCount": 3933825,
+        "path": "逆天邪神/逆天邪神.txt",
+        "size": 13820868
       }
     ]
   }
