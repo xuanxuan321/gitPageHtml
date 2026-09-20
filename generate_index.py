@@ -23,20 +23,23 @@ BOOK_META = {
     }
 }
 
-def extract_snippet(file_path):
+def extract_snippet(file_path, book_name="", start_num=None, end_num=None):
     """
-    严格提取文件开头的前10个非空字符
+    提取章节简介：优先使用《书名》 章节范围，确保标题与条目范围完整展示
     """
+    if book_name and start_num is not None and end_num is not None and start_num != 999999:
+        return f"《{book_name}》 {start_num}-{end_num}章"
     try:
         with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
             chunk = f.read(500)
-            # 过滤空白字符（空格、换行、制表符等）
-            chars = [c for c in chunk if not c.isspace()]
-            snippet = "".join(chars[:10])
-            return snippet if snippet else "暂无预览"
+            lines = [l.strip() for l in chunk.splitlines() if l.strip()]
+            if lines:
+                first_line = re.sub(r'剧情复述$', '', lines[0]).strip()
+                if first_line:
+                    return first_line
     except Exception as e:
         print(f"读取文件失败: {file_path}, 错误: {e}")
-        return "暂无预览"
+    return f"《{book_name}》" if book_name else "暂无预览"
 
 def count_words(file_path):
     """
@@ -93,7 +96,7 @@ def scan_books():
         items = []
         for start_num, end_num, fname in txt_files:
             file_abs_path = os.path.join(item_path, fname)
-            snippet = extract_snippet(file_abs_path)
+            snippet = extract_snippet(file_abs_path, book_name=book_name, start_num=start_num, end_num=end_num)
             word_count = count_words(file_abs_path)
             file_size = os.path.getsize(file_abs_path)
             
