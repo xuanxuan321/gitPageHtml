@@ -40,8 +40,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 15,
-    "totalWordCount": 121371,
+    "totalItems": 16,
+    "totalWordCount": 131531,
     "items": [
       {
         "id": "541-550",
@@ -162,6 +162,14 @@
         "wordCount": 12767,
         "path": "逆天邪神/681-690 章.txt",
         "size": 42831
+      },
+      {
+        "id": "691-700",
+        "title": "第691章 - 第700章",
+        "snippet": "《逆天邪神》691-",
+        "wordCount": 10160,
+        "path": "逆天邪神/691-700 章.txt",
+        "size": 34164
       }
     ]
   }
