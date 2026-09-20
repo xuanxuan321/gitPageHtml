@@ -40,8 +40,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 14,
-    "totalWordCount": 108604,
+    "totalItems": 15,
+    "totalWordCount": 121371,
     "items": [
       {
         "id": "541-550",
@@ -154,6 +154,14 @@
         "wordCount": 10516,
         "path": "逆天邪神/671-680 章.txt",
         "size": 35108
+      },
+      {
+        "id": "681-690",
+        "title": "第681章 - 第690章",
+        "snippet": "《逆天邪神》681-",
+        "wordCount": 12767,
+        "path": "逆天邪神/681-690 章.txt",
+        "size": 42831
       }
     ]
   }
