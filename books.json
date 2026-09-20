@@ -40,8 +40,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 19,
-    "totalWordCount": 163145,
+    "totalItems": 20,
+    "totalWordCount": 175610,
     "items": [
       {
         "id": "541-550",
@@ -194,6 +194,14 @@
         "wordCount": 11603,
         "path": "逆天邪神/721-730 章.txt",
         "size": 39352
+      },
+      {
+        "id": "731-740",
+        "title": "第731章 - 第740章",
+        "snippet": "《逆天邪神》731-",
+        "wordCount": 12465,
+        "path": "逆天邪神/731-740 章.txt",
+        "size": 42170
       }
     ]
   }
