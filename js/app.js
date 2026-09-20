@@ -304,7 +304,7 @@ function renderChapterList() {
   if (AppState.currentFilter === '未读') {
     items = items.filter(item => !readSet.has(item.id));
   } else if (AppState.currentFilter === '已读') {
-    items = items.filter(item => readSet.has(item.id));
+    items = items.filter(item => readSet.has(item.id)).slice().reverse();
   }
 
   if (items.length === 0) {
