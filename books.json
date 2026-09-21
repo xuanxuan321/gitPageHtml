@@ -113,7 +113,7 @@
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
     "totalItems": 33,
-    "totalWordCount": 318174,
+    "totalWordCount": 315864,
     "items": [
       {
         "id": "541-550",
@@ -375,9 +375,9 @@
         "id": "861-870",
         "title": "第861章 - 第870章",
         "snippet": "《逆天邪神》 861-870章",
-        "wordCount": 8676,
+        "wordCount": 6366,
         "path": "逆天邪神/861-870 章.txt",
-        "size": 29451
+        "size": 21512
       }
     ]
   }
