@@ -32,8 +32,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 24,
-    "totalWordCount": 224375,
+    "totalItems": 25,
+    "totalWordCount": 234215,
     "items": [
       {
         "id": "541-550",
@@ -226,6 +226,14 @@
         "wordCount": 12110,
         "path": "逆天邪神/771-780 章.txt",
         "size": 41082
+      },
+      {
+        "id": "781-790",
+        "title": "第781章 - 第790章",
+        "snippet": "《逆天邪神》 781-790章",
+        "wordCount": 9840,
+        "path": "逆天邪神/781-790 章.txt",
+        "size": 33624
       }
     ]
   }
