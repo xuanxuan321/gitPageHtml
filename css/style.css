@@ -83,11 +83,9 @@ html.dark-mode, body.dark-mode {
 #app {
   max-width: 520px;
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0 auto;
-  position: relative;
   background: var(--bg-primary);
-  display: flex;
-  flex-direction: column;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.03);
 }
 
@@ -549,7 +547,7 @@ body.dark-mode .chapter-nav-header {
 
 /* 章节列表 */
 .chapter-list {
-  padding: 0 16px 24px;
+  padding: 0 10px 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -558,13 +556,13 @@ body.dark-mode .chapter-nav-header {
 .chapter-item-card {
   background: var(--bg-card);
   border-radius: var(--radius-md);
-  padding: 12px 14px;
+  padding: 10px 10px;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
   transition: transform 0.15s ease, border-color 0.2s ease;
 }
 
@@ -581,14 +579,14 @@ body.dark-mode .chapter-item-card.is-read {
 .item-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   min-width: 0;
   flex: 1;
 }
 
 .item-cover-thumb {
-  width: 42px;
-  height: 56px;
+  width: 36px;
+  height: 48px;
   border-radius: 6px;
   object-fit: cover;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -604,7 +602,7 @@ body.dark-mode .chapter-item-card.is-read {
 }
 
 .item-range-title {
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-primary);
   white-space: nowrap;
@@ -614,7 +612,7 @@ body.dark-mode .chapter-item-card.is-read {
 }
 
 .item-snippet {
-  font-size: 12px;
+  font-size: 11.5px;
   color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
@@ -655,21 +653,21 @@ body.dark-mode .chapter-item-card.is-read {
 .item-action {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   flex-shrink: 0;
 }
 
 /* 复制、查看与已读按钮 */
 .action-btn {
   border: none;
-  padding: 7px 10px;
+  padding: 6px 7px;
   border-radius: var(--radius-md);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 2.5px;
   flex-shrink: 0;
   transition: all 0.2s ease;
   white-space: nowrap;
@@ -677,33 +675,33 @@ body.dark-mode .chapter-item-card.is-read {
 
 @media (max-width: 380px) {
   .chapter-list {
-    padding: 0 10px 24px;
+    padding: 0 8px 24px;
   }
   .chapter-stats-card,
   .chapter-filter-tabs {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
   }
   .chapter-item-card {
-    padding: 10px 10px;
+    padding: 9px 8px;
     gap: 6px;
   }
   .item-left {
-    gap: 8px;
+    gap: 6px;
   }
   .item-cover-thumb {
-    width: 38px;
-    height: 50px;
+    width: 36px;
+    height: 48px;
   }
   .item-range-title {
-    font-size: 13.5px;
+    font-size: 13px;
   }
   .item-snippet {
-    font-size: 11.5px;
+    font-size: 11px;
   }
   .action-btn {
-    padding: 6px 8px;
-    font-size: 11.5px;
+    padding: 5px 6px;
+    font-size: 11px;
     gap: 2px;
   }
 }
@@ -1274,8 +1272,9 @@ input:checked + .slider:before {
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 100%;
   max-width: 520px;
   height: calc(64px + var(--safe-bottom));
@@ -1288,6 +1287,7 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: space-around;
   z-index: 100;
+  box-sizing: border-box;
 }
 
 body.dark-mode .bottom-nav {
@@ -1333,8 +1333,10 @@ body.dark-mode .bottom-nav {
 .toast-container {
   position: fixed;
   top: calc(24px + var(--safe-top));
-  left: 50%;
-  transform: translateX(-50%) translateY(-120px);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translateY(-120px);
   width: calc(100% - 48px);
   max-width: 360px;
   background: rgba(45, 55, 72, 0.94);
@@ -1353,10 +1355,11 @@ body.dark-mode .bottom-nav {
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   pointer-events: none;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .toast-container.show {
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }

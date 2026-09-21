@@ -182,60 +182,60 @@
         </div>
       </div>
     </main>
+  </div>
 
-    <!-- 底部固定导航栏 (仅保留 书库 和 设置) -->
-    <nav class="bottom-nav">
-      <button class="nav-tab-btn active" data-tab="home">
-        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-        <span>书库</span>
-      </button>
-      <button class="nav-tab-btn" data-tab="settings">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-        <span>设置</span>
-      </button>
-    </nav>
+  <!-- 底部固定导航栏 (仅保留 书库 和 设置) -->
+  <nav class="bottom-nav">
+    <button class="nav-tab-btn active" data-tab="home">
+      <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      <span>书库</span>
+    </button>
+    <button class="nav-tab-btn" data-tab="settings">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      <span>设置</span>
+    </button>
+  </nav>
 
-    <!-- 章节内容查看与滚动阅读弹窗 -->
-    <div id="reader-modal" class="reader-modal" aria-hidden="true">
-      <div class="reader-overlay" id="reader-overlay"></div>
-      <div class="reader-sheet">
-        <!-- 弹窗顶部栏 -->
-        <header class="reader-header">
-          <button class="reader-close-btn" id="reader-close-btn" aria-label="关闭阅读弹窗">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          </button>
-          <div class="reader-titles">
-            <h3 class="reader-book-name" id="reader-book-name">小说名</h3>
-            <span class="reader-chapter-range" id="reader-chapter-range">第X章 - 第Y章</span>
-          </div>
-          <button class="reader-copy-btn" id="reader-copy-btn" title="复制本章节内容">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            复制
-          </button>
-        </header>
-
-        <!-- 弹窗正文滚动区 -->
-        <div class="reader-body" id="reader-body">
-          <div class="reader-loading" id="reader-loading">
-            <svg class="spin" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
-            <p>正在加载章节内容...</p>
-          </div>
-          <div class="reader-content" id="reader-content"></div>
+  <!-- 章节内容查看与滚动阅读弹窗 -->
+  <div id="reader-modal" class="reader-modal" aria-hidden="true">
+    <div class="reader-overlay" id="reader-overlay"></div>
+    <div class="reader-sheet">
+      <!-- 弹窗顶部栏 -->
+      <header class="reader-header">
+        <button class="reader-close-btn" id="reader-close-btn" aria-label="关闭阅读弹窗">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <div class="reader-titles">
+          <h3 class="reader-book-name" id="reader-book-name">小说名</h3>
+          <span class="reader-chapter-range" id="reader-chapter-range">第X章 - 第Y章</span>
         </div>
+        <button class="reader-copy-btn" id="reader-copy-btn" title="复制本章节内容">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          复制
+        </button>
+      </header>
+
+      <!-- 弹窗正文滚动区 -->
+      <div class="reader-body" id="reader-body">
+        <div class="reader-loading" id="reader-loading">
+          <svg class="spin" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
+          <p>正在加载章节内容...</p>
+        </div>
+        <div class="reader-content" id="reader-content"></div>
       </div>
     </div>
-
-    <!-- 浮层 Toast 通知 -->
-    <aside id="toast-container" class="toast-container" role="alert" aria-live="polite">
-      <div class="toast-content">
-        <svg id="toast-icon" class="toast-icon" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-        </svg>
-        <span id="toast-text">通知内容</span>
-      </div>
-      <button id="toast-undo-btn" class="toast-undo-btn" style="display: none;">撤销</button>
-    </aside>
   </div>
+
+  <!-- 浮层 Toast 通知 -->
+  <aside id="toast-container" class="toast-container" role="alert" aria-live="polite">
+    <div class="toast-content">
+      <svg id="toast-icon" class="toast-icon" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+      </svg>
+      <span id="toast-text">通知内容</span>
+    </div>
+    <button id="toast-undo-btn" class="toast-undo-btn" style="display: none;">撤销</button>
+  </aside>
 
   <script src="js/app.js"></script>
 </body>
