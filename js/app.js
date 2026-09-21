@@ -341,35 +341,31 @@ function renderChapterList() {
           </div>
         </div>
         <div class="item-action">
-          <button class="action-btn view-btn" data-action="view" data-item-id="${item.id}" title="查看并阅读">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-            查看
+          <button class="action-btn view-btn" data-action="view" data-item-id="${item.id}" title="查看并阅读" aria-label="查看并阅读">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
           </button>
           ${isRead
-            ? `<button class="action-btn undo-btn" data-action="toggle-read" data-item-id="${item.id}" title="点击撤销已读状态">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            ? `<button class="action-btn undo-btn" data-action="toggle-read" data-item-id="${item.id}" title="点击撤销已读状态" aria-label="撤销已读">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M9 14l-4-4l4-4"/>
                   <path d="M5 10h11a4 4 0 1 1 0 8h-1"/>
                 </svg>
-                撤销
               </button>
-              <button class="action-btn copy-btn" data-action="copy" data-item-id="${item.id}" title="复制本章节内容">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <button class="action-btn copy-btn" data-action="copy" data-item-id="${item.id}" title="复制本章节内容" aria-label="复制章节">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
                   <line x1="16" y1="13" x2="8" y2="13"></line>
                   <line x1="16" y1="17" x2="8" y2="17"></line>
                 </svg>
-                复制
               </button>`
-            : `<button class="action-btn copy-btn" data-action="copy" data-item-id="${item.id}" title="复制本章节内容并标记已读">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            : `<button class="action-btn copy-btn" data-action="copy" data-item-id="${item.id}" title="复制本章节内容并标记已读" aria-label="复制章节">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
                   <line x1="16" y1="13" x2="8" y2="13"></line>
                   <line x1="16" y1="17" x2="8" y2="17"></line>
                 </svg>
-                复制
               </button>`
           }
         </div>
@@ -414,8 +410,7 @@ async function handleCopyItem(bookId, itemId) {
   const btn = document.querySelector(`.chapter-item-card[data-item-id="${itemId}"] .copy-btn`);
   if (btn) {
     btn.innerHTML = `
-      <svg class="spin" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
-      复制中...
+      <svg class="spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
     `;
     btn.style.opacity = '0.7';
   }
@@ -461,13 +456,12 @@ async function handleCopyItem(bookId, itemId) {
     showToast('复制失败，请重试或检查剪贴板权限', false);
     if (btn) {
       btn.innerHTML = `
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
           <polyline points="14 2 14 8 20 8"></polyline>
           <line x1="16" y1="13" x2="8" y2="13"></line>
           <line x1="16" y1="17" x2="8" y2="17"></line>
         </svg>
-        复制
       `;
       btn.style.opacity = '1';
     }

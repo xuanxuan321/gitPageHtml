@@ -653,24 +653,29 @@ body.dark-mode .chapter-item-card.is-read {
 .item-action {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   flex-shrink: 0;
 }
 
-/* 复制、查看与已读按钮 */
+/* 纯图标按钮（查看、撤销、复制） */
 .action-btn {
   border: none;
-  padding: 6px 7px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-md);
-  font-size: 11.5px;
-  font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 2.5px;
+  justify-content: center;
   flex-shrink: 0;
   transition: all 0.2s ease;
-  white-space: nowrap;
+  padding: 0;
+}
+
+.action-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 380px) {
@@ -694,15 +699,21 @@ body.dark-mode .chapter-item-card.is-read {
     height: 48px;
   }
   .item-range-title {
-    font-size: 13px;
+    font-size: 13.5px;
   }
   .item-snippet {
     font-size: 11px;
   }
+  .item-action {
+    gap: 5px;
+  }
   .action-btn {
-    padding: 5px 6px;
-    font-size: 11px;
-    gap: 2px;
+    width: 32px;
+    height: 32px;
+  }
+  .action-btn svg {
+    width: 15px;
+    height: 15px;
   }
 }
 
