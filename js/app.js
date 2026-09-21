@@ -346,12 +346,29 @@ function renderChapterList() {
             查看
           </button>
           ${isRead
-            ? `<button class="action-btn read-btn" data-action="toggle-read" data-item-id="${item.id}" title="点击撤销已读状态">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                已读
+            ? `<button class="action-btn undo-btn" data-action="toggle-read" data-item-id="${item.id}" title="点击撤销已读状态">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 14l-4-4l4-4"/>
+                  <path d="M5 10h11a4 4 0 1 1 0 8h-1"/>
+                </svg>
+                撤销
+              </button>
+              <button class="action-btn copy-btn" data-action="copy" data-item-id="${item.id}" title="复制本章节内容">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+                复制
               </button>`
-            : `<button class="action-btn copy-btn" data-action="copy" data-item-id="${item.id}">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            : `<button class="action-btn copy-btn" data-action="copy" data-item-id="${item.id}" title="复制本章节内容并标记已读">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
                 复制
               </button>`
           }
@@ -421,12 +438,19 @@ async function handleCopyItem(bookId, itemId) {
     // 计算有效字数（只包含汉字和数字，不含标点符号）
     const wordCount = item.wordCount || countValidChars(text);
 
-    // 标记为已读
-    markItemAsRead(bookId, itemId);
+    const readSet = AppState.readStatus[bookId];
+    const wasAlreadyRead = readSet && readSet.has(itemId);
 
-    // 弹出 Toast（展示具体复制的字数）
-    AppState.lastCopiedItem = { bookId, itemId };
-    showToast(`已复制 ${wordCount.toLocaleString()} 字到剪贴板！已自动标记为已读`, true, true);
+    if (!wasAlreadyRead) {
+      // 标记为已读
+      markItemAsRead(bookId, itemId);
+      // 弹出 Toast（展示具体复制的字数）
+      AppState.lastCopiedItem = { bookId, itemId };
+      showToast(`已复制 ${wordCount.toLocaleString()} 字到剪贴板！已自动标记为已读`, true, true);
+    } else {
+      // 已经读过，仅提示复制成功
+      showToast(`已复制 ${wordCount.toLocaleString()} 字到剪贴板！`, true, false);
+    }
 
     // 同步刷新视图
     renderChapterStats();
@@ -437,7 +461,12 @@ async function handleCopyItem(bookId, itemId) {
     showToast('复制失败，请重试或检查剪贴板权限', false);
     if (btn) {
       btn.innerHTML = `
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
         复制
       `;
       btn.style.opacity = '1';
@@ -700,7 +729,7 @@ async function openReaderModal(book, item) {
   // 绑定弹窗内复制按钮
   if (copyBtn) {
     copyBtn.innerHTML = `
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
       复制
     `;
     copyBtn.onclick = async () => {
@@ -711,7 +740,7 @@ async function openReaderModal(book, item) {
       `;
       setTimeout(() => {
         copyBtn.innerHTML = `
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
           复制
         `;
       }, 2000);

@@ -9,6 +9,7 @@
   --text-tertiary: #94a3b8;
   --accent-blue: #2563eb;
   --accent-blue-light: #eff6ff;
+  --accent-blue-border: rgba(37, 99, 235, 0.25);
   --accent-blue-hover: #1d4ed8;
   --accent-green: #10b981;
   --accent-green-light: #ecfdf5;
@@ -38,6 +39,7 @@ body.dark-mode {
   --text-tertiary: #64748b;
   --accent-blue: #3b82f6;
   --accent-blue-light: rgba(59, 130, 246, 0.15);
+  --accent-blue-border: rgba(59, 130, 246, 0.3);
   --accent-blue-hover: #60a5fa;
   --accent-green: #34d399;
   --accent-green-light: rgba(52, 211, 153, 0.15);
@@ -718,25 +720,50 @@ body.dark-mode .chapter-item-card.is-read {
 }
 
 .action-btn.copy-btn {
-  background: var(--accent-blue);
-  color: #ffffff;
-  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
+  background: var(--accent-blue-light);
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue-border);
 }
 
 .action-btn.copy-btn:active {
   transform: scale(0.92);
-  background: var(--accent-blue-hover);
+  background: #dbeafe;
 }
 
+.action-btn.undo-btn,
 .action-btn.read-btn {
   background: var(--accent-green-light);
   color: var(--accent-green);
   border: 1px solid var(--accent-green-border);
 }
 
+.action-btn.undo-btn:active,
 .action-btn.read-btn:active {
   transform: scale(0.92);
   background: #d1fae5;
+}
+
+/* 深色模式按钮适配 */
+body.dark-mode .action-btn.copy-btn {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+body.dark-mode .action-btn.copy-btn:active {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+body.dark-mode .action-btn.undo-btn,
+body.dark-mode .action-btn.read-btn {
+  background: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+body.dark-mode .action-btn.undo-btn:active,
+body.dark-mode .action-btn.read-btn:active {
+  background: rgba(52, 211, 153, 0.25);
 }
 
 /* ================= 章节查看与滚动阅读弹窗 ================= */
