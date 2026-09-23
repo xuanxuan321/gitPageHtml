@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 30,
-    "totalWordCount": 233118,
+    "totalItems": 31,
+    "totalWordCount": 240617,
     "items": [
       {
         "id": "1291-1300",
@@ -247,6 +247,14 @@
         "wordCount": 7492,
         "path": "凡人修仙传/1581-1590 章.txt",
         "size": 24416
+      },
+      {
+        "id": "1591-1600",
+        "title": "第1591章 - 第1600章",
+        "snippet": "《凡人修仙传》 1591-1600章",
+        "wordCount": 7499,
+        "path": "凡人修仙传/1591-1600 章.txt",
+        "size": 24372
       }
     ]
   },
