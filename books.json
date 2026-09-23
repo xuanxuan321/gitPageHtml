@@ -440,8 +440,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 63,
-    "totalWordCount": 541731,
+    "totalItems": 64,
+    "totalWordCount": 549082,
     "items": [
       {
         "id": "541-550",
@@ -946,6 +946,14 @@
         "wordCount": 7406,
         "path": "逆天邪神/1161-1170 章.txt",
         "size": 25145
+      },
+      {
+        "id": "1171-1180",
+        "title": "第1171章 - 第1180章",
+        "snippet": "《逆天邪神》 1171-1180章",
+        "wordCount": 7351,
+        "path": "逆天邪神/1171-1180 章.txt",
+        "size": 25431
       }
     ]
   }
