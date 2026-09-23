@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 43,
-    "totalWordCount": 330380,
+    "totalItems": 44,
+    "totalWordCount": 337881,
     "items": [
       {
         "id": "1291-1300",
@@ -351,6 +351,14 @@
         "wordCount": 7385,
         "path": "凡人修仙传/1711-1720 章.txt",
         "size": 24196
+      },
+      {
+        "id": "1721-1730",
+        "title": "第1721章 - 第1730章",
+        "snippet": "《凡人修仙传》 1721-1730章",
+        "wordCount": 7501,
+        "path": "凡人修仙传/1721-1730 章.txt",
+        "size": 24522
       }
     ]
   },
