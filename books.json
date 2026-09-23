@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 32,
-    "totalWordCount": 248104,
+    "totalItems": 33,
+    "totalWordCount": 255596,
     "items": [
       {
         "id": "1291-1300",
@@ -263,6 +263,14 @@
         "wordCount": 7487,
         "path": "凡人修仙传/1601-1610 章.txt",
         "size": 24289
+      },
+      {
+        "id": "1611-1620",
+        "title": "第1611章 - 第1620章",
+        "snippet": "《凡人修仙传》 1611-1620章",
+        "wordCount": 7492,
+        "path": "凡人修仙传/1611-1620 章.txt",
+        "size": 24519
       }
     ]
   },
