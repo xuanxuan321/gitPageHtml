@@ -120,8 +120,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 38,
-    "totalWordCount": 354802,
+    "totalItems": 39,
+    "totalWordCount": 362508,
     "items": [
       {
         "id": "541-550",
@@ -426,6 +426,14 @@
         "wordCount": 7773,
         "path": "逆天邪神/911-920 章.txt",
         "size": 25745
+      },
+      {
+        "id": "921-930",
+        "title": "第921章 - 第930章",
+        "snippet": "《逆天邪神》 921-930章",
+        "wordCount": 7706,
+        "path": "逆天邪神/921-930 章.txt",
+        "size": 25859
       }
     ]
   }
