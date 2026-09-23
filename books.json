@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 25,
-    "totalWordCount": 195732,
+    "totalItems": 26,
+    "totalWordCount": 203207,
     "items": [
       {
         "id": "1291-1300",
@@ -207,6 +207,14 @@
         "wordCount": 7527,
         "path": "凡人修仙传/1531-1540 章.txt",
         "size": 24351
+      },
+      {
+        "id": "1541-1550",
+        "title": "第1541章 - 第1550章",
+        "snippet": "《凡人修仙传》 1541-1550章",
+        "wordCount": 7475,
+        "path": "凡人修仙传/1541-1550 章.txt",
+        "size": 24308
       }
     ]
   },
