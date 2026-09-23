@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 50,
-    "totalWordCount": 382265,
+    "totalItems": 51,
+    "totalWordCount": 389725,
     "items": [
       {
         "id": "1291-1300",
@@ -407,6 +407,14 @@
         "wordCount": 7473,
         "path": "凡人修仙传/1781-1790 章.txt",
         "size": 24680
+      },
+      {
+        "id": "1791-1800",
+        "title": "第1791章 - 第1800章",
+        "snippet": "《凡人修仙传》 1791-1800章",
+        "wordCount": 7460,
+        "path": "凡人修仙传/1791-1800 章.txt",
+        "size": 24471
       }
     ]
   },
