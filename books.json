@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 33,
-    "totalWordCount": 255596,
+    "totalItems": 34,
+    "totalWordCount": 263038,
     "items": [
       {
         "id": "1291-1300",
@@ -271,6 +271,14 @@
         "wordCount": 7492,
         "path": "凡人修仙传/1611-1620 章.txt",
         "size": 24519
+      },
+      {
+        "id": "1621-1630",
+        "title": "第1621章 - 第1630章",
+        "snippet": "《凡人修仙传》 1621-1630章",
+        "wordCount": 7442,
+        "path": "凡人修仙传/1621-1630 章.txt",
+        "size": 24264
       }
     ]
   },
@@ -280,8 +288,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 44,
-    "totalWordCount": 399913,
+    "totalItems": 45,
+    "totalWordCount": 407404,
     "items": [
       {
         "id": "541-550",
@@ -634,6 +642,14 @@
         "wordCount": 7495,
         "path": "逆天邪神/971-980 章.txt",
         "size": 25018
+      },
+      {
+        "id": "981-990",
+        "title": "第981章 - 第990章",
+        "snippet": "《逆天邪神》 981-990章",
+        "wordCount": 7491,
+        "path": "逆天邪神/981-990 章.txt",
+        "size": 24990
       }
     ]
   }
