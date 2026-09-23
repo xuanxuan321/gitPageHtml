@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 48,
-    "totalWordCount": 367274,
+    "totalItems": 49,
+    "totalWordCount": 374792,
     "items": [
       {
         "id": "1291-1300",
@@ -391,6 +391,14 @@
         "wordCount": 6966,
         "path": "凡人修仙传/1761-1770 章.txt",
         "size": 22815
+      },
+      {
+        "id": "1771-1780",
+        "title": "第1771章 - 第1780章",
+        "snippet": "《凡人修仙传》 1771-1780章",
+        "wordCount": 7518,
+        "path": "凡人修仙传/1771-1780 章.txt",
+        "size": 24632
       }
     ]
   },
@@ -400,8 +408,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 59,
-    "totalWordCount": 512115,
+    "totalItems": 60,
+    "totalWordCount": 519495,
     "items": [
       {
         "id": "541-550",
@@ -874,6 +882,14 @@
         "wordCount": 7354,
         "path": "逆天邪神/1121-1130 章.txt",
         "size": 25233
+      },
+      {
+        "id": "1131-1140",
+        "title": "第1131章 - 第1140章",
+        "snippet": "《逆天邪神》 1131-1140章",
+        "wordCount": 7380,
+        "path": "逆天邪神/1131-1140 章.txt",
+        "size": 25423
       }
     ]
   }
