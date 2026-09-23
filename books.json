@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 53,
-    "totalWordCount": 404011,
+    "totalItems": 54,
+    "totalWordCount": 411496,
     "items": [
       {
         "id": "1291-1300",
@@ -431,6 +431,14 @@
         "wordCount": 7488,
         "path": "凡人修仙传/1811-1820 章.txt",
         "size": 24503
+      },
+      {
+        "id": "1821-1830",
+        "title": "第1821章 - 第1830章",
+        "snippet": "《凡人修仙传》 1821-1830章",
+        "wordCount": 7485,
+        "path": "凡人修仙传/1821-1830 章.txt",
+        "size": 24520
       }
     ]
   },
