@@ -296,8 +296,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 45,
-    "totalWordCount": 407404,
+    "totalItems": 46,
+    "totalWordCount": 414968,
     "items": [
       {
         "id": "541-550",
@@ -658,6 +658,14 @@
         "wordCount": 7491,
         "path": "逆天邪神/981-990 章.txt",
         "size": 24990
+      },
+      {
+        "id": "991-1000",
+        "title": "第991章 - 第1000章",
+        "snippet": "《逆天邪神》 991-1000章",
+        "wordCount": 7564,
+        "path": "逆天邪神/991-1000 章.txt",
+        "size": 25337
       }
     ]
   }
