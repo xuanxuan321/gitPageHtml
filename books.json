@@ -352,8 +352,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 52,
-    "totalWordCount": 460167,
+    "totalItems": 53,
+    "totalWordCount": 467572,
     "items": [
       {
         "id": "541-550",
@@ -770,6 +770,14 @@
         "wordCount": 7441,
         "path": "逆天邪神/1051-1060 章.txt",
         "size": 24935
+      },
+      {
+        "id": "1061-1070",
+        "title": "第1061章 - 第1070章",
+        "snippet": "《逆天邪神》 1061-1070章",
+        "wordCount": 7405,
+        "path": "逆天邪神/1061-1070 章.txt",
+        "size": 24966
       }
     ]
   }
