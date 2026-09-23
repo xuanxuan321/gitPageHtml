@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 23,
-    "totalWordCount": 180733,
+    "totalItems": 24,
+    "totalWordCount": 188205,
     "items": [
       {
         "id": "1291-1300",
@@ -191,6 +191,14 @@
         "wordCount": 7549,
         "path": "凡人修仙传/1511-1520 章.txt",
         "size": 24633
+      },
+      {
+        "id": "1521-1530",
+        "title": "第1521章 - 第1530章",
+        "snippet": "《凡人修仙传》 1521-1530章",
+        "wordCount": 7472,
+        "path": "凡人修仙传/1521-1530 章.txt",
+        "size": 24244
       }
     ]
   },
