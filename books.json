@@ -280,8 +280,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 43,
-    "totalWordCount": 392418,
+    "totalItems": 44,
+    "totalWordCount": 399913,
     "items": [
       {
         "id": "541-550",
@@ -626,6 +626,14 @@
         "wordCount": 7517,
         "path": "逆天邪神/961-970 章.txt",
         "size": 25370
+      },
+      {
+        "id": "971-980",
+        "title": "第971章 - 第980章",
+        "snippet": "《逆天邪神》 971-980章",
+        "wordCount": 7495,
+        "path": "逆天邪神/971-980 章.txt",
+        "size": 25018
       }
     ]
   }
