@@ -464,8 +464,8 @@
     "cover": "逆天邪神/封面.jpeg",
     "category": "玄幻",
     "description": "掌天毒之珠，承邪神之血，修逆天之力，逆天而行。",
-    "totalItems": 66,
-    "totalWordCount": 563794,
+    "totalItems": 67,
+    "totalWordCount": 571158,
     "items": [
       {
         "id": "541-550",
@@ -994,6 +994,14 @@
         "wordCount": 7353,
         "path": "逆天邪神/1191-1200 章.txt",
         "size": 25428
+      },
+      {
+        "id": "1201-1210",
+        "title": "第1201章 - 第1210章",
+        "snippet": "《逆天邪神》 1201-1210章",
+        "wordCount": 7364,
+        "path": "逆天邪神/1201-1210 章.txt",
+        "size": 25629
       }
     ]
   }
