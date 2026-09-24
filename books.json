@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 71,
-    "totalWordCount": 536636,
+    "totalItems": 72,
+    "totalWordCount": 544138,
     "items": [
       {
         "id": "1291-1300",
@@ -575,6 +575,14 @@
         "wordCount": 6922,
         "path": "凡人修仙传/1991-2000 章.txt",
         "size": 22597
+      },
+      {
+        "id": "2001-2010",
+        "title": "第2001章 - 第2010章",
+        "snippet": "《凡人修仙传》 2001-2010章",
+        "wordCount": 7502,
+        "path": "凡人修仙传/2001-2010 章.txt",
+        "size": 24501
       }
     ]
   },
