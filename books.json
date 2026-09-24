@@ -5,8 +5,8 @@
     "cover": "凡人修仙传/封面.jpeg",
     "category": "仙侠",
     "description": "一个普通的山村少年，机缘巧合之下踏入修仙之路。",
-    "totalItems": 67,
-    "totalWordCount": 507351,
+    "totalItems": 68,
+    "totalWordCount": 514894,
     "items": [
       {
         "id": "1291-1300",
@@ -543,6 +543,14 @@
         "wordCount": 7210,
         "path": "凡人修仙传/1951-1960 章.txt",
         "size": 23575
+      },
+      {
+        "id": "1961-1970",
+        "title": "第1961章 - 第1970章",
+        "snippet": "《凡人修仙传》 1961-1970章",
+        "wordCount": 7543,
+        "path": "凡人修仙传/1961-1970 章.txt",
+        "size": 24642
       }
     ]
   },
